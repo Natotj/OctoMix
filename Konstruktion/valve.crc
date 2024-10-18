@@ -1,0 +1,50 @@
+﻿  Modell VALVE: 
+ 
+
+  3 Zirkulärer-Bezug-Schleifen gefunden
+ 
+
+   Schleife Nr. 1
+
+   Schleifentiefe beträgt 3
+
+KE-Nummer 9 (KOMPONENTE, ID = 34) 
+  in Modell VALVE verweist auf:
+
+KE-Nummer 11 (PROFIL_3, ID = 201) 
+  in Modell VALVE_UPPER_FRAME verweist auf:
+
+KE-Nummer 9 (KOMPONENTE, ID = 34) 
+  in Modell VALVE - Kreis geschlossen.
+
+
+   Schleife Nr. 2
+
+   Schleifentiefe beträgt 3
+
+KE-Nummer 18 (KOMPONENTE, ID = 201) 
+  in Modell VALVE verweist auf:
+
+KE-Nummer 9 (PROFIL_3, ID = 144) 
+  in Modell VALVE_CLAMPPLATE verweist auf:
+
+KE-Nummer 18 (KOMPONENTE, ID = 201) 
+  in Modell VALVE - Kreis geschlossen.
+
+
+   Schleife Nr. 3
+
+   Schleifentiefe beträgt 4
+
+KE-Nummer 9 (KOMPONENTE, ID = 34) 
+  in Modell VALVE verweist auf:
+
+KE-Nummer 11 (PROFIL_3, ID = 201) 
+  in Modell VALVE_UPPER_FRAME muss folgen nach:
+
+KE-Nummer 8 (PROFIL_1, ID = 91) 
+  in Modell VALVE_UPPER_FRAME verweist auf:
+
+KE-Nummer 9 (KOMPONENTE, ID = 34) 
+  in Modell VALVE - Kreis geschlossen.
+
