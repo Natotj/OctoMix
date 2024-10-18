@@ -29,9 +29,8 @@ void loop() // run over and over
     if (got<60 && got>0) {
       
       ID = got;
-      ID--;
 
-      out=crs[ID];
+      out=crs[ID-1];
       delay(50);
       
       Serial.print("CRS.txt=");
