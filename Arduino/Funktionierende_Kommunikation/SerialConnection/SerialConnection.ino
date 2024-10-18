@@ -37,7 +37,7 @@ void loop() // run over and over
       Serial.print(m);
       Serial.print(out);
       Serial.print(m);
-        Serial.write(0X0ff);0400
+        Serial.write(0X0ff);
         Serial.write(0X0ff);
         Serial.write(0X0ff);
 
