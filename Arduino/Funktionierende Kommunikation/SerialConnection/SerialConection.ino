@@ -29,16 +29,15 @@ void loop() // run over and over
     if (got<60 && got>0) {
       
       ID = got;
-      ID--;
 
-      out=crs[ID];
+      out=crs[ID-1];
       delay(50);
       
       Serial.print("CRS.txt=");
       Serial.print(m);
       Serial.print(out);
       Serial.print(m);
-        Serial.write(0X0ff);
+        Serial.write(0X0ff);0400
         Serial.write(0X0ff);
         Serial.write(0X0ff);
 
