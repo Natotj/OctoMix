@@ -1,0 +1,25 @@
+﻿  Modell VALVE_DOUBLE: 
+ 
+
+  1 Zirkulärer-Bezug-Schleifen gefunden
+ 
+
+   Schleife Nr. 1
+
+   Schleifentiefe beträgt 5
+
+KE-Nummer 9 (KOMPONENTE, ID = 35) 
+  in Modell VALVE_DOUBLE verweist auf:
+
+KE-Nummer 19 (MUSTER_1, ID = 2947) 
+  in Modell VALVE_DOUBLE_UPPER_FRAME muss folgen nach:
+
+KE-Nummer 15 (PROFIL_5, ID = 597) 
+  in Modell VALVE_DOUBLE_UPPER_FRAME verweist auf:
+
+KE-Nummer 9 (PROFIL_2, ID = 118) 
+  in Modell VALVE_DOUBLE_UPPER_FRAME verweist auf:
+
+KE-Nummer 9 (KOMPONENTE, ID = 35) 
+  in Modell VALVE_DOUBLE - Kreis geschlossen.
+
