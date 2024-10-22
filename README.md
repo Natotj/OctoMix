@@ -6,6 +6,9 @@ Code and 3D parts for a diy cocktailmixer powerd by Arduino, EV3 and Nextion Dis
 
 - Vent = valve
 
+# Specs
+-
+
 # Disclamer
 
 All Data is for private use only! Use at your own risk. 
