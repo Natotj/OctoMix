@@ -1,0 +1,7 @@
+ERROR - C:\Users\weiss\config.pro, linenum 37:  Keyword 'ENABLE_ABSOLUTE_ACCURACY' is not valid.
+ERROR - C:\Users\weiss\config.pro, linenum 38:  Keyword 'ENABLE_ASSEMBLY_ACCURACY' is not valid.
+ERROR - C:\Users\weiss\config.pro, linenum 51:  Keyword 'MODEL_NOTE_DISPLAY' is not valid.
+ERROR - C:\Users\weiss\config.pro, linenum 64: Invalid value 'shading_high' for keyword 'SAVE_MODEL_DISPLAY'.
+ERROR - C:\Users\weiss\config.pro, linenum 80: Invalid value 'ie_in_process' for keyword 'WINDOWS_BROWSER_TYPE'.
+WARNING: Invalid search path file.
+gdi32_comm_shutdown wait for polling thread timed out.
