@@ -7,12 +7,12 @@ Code and 3D parts for a diy cocktailmixer powerd by Arduino, EV3 and Nextion Dis
 - Vent = valve
 
 # Specs
--Arduiono Uno R3
--Lego Mindsorms EV3 31313
-  -With 2 motors from the Lego Mindsorms NXT
-  -Build with many other Lego technic parts
-  -Programmed with the EV3 Lab (https://education.lego.com/de-de/downloads/retiredproducts/mindstorms-ev3-lab/software/)
--Nextion Display NX4024K032_011
+- Arduiono Uno R3
+- Lego Mindsorms EV3 31313
+  - With 2 motors from the Lego Mindsorms NXT
+  - Build with many other Lego technic parts
+  - Programmed with the EV3 Lab (https://education.lego.com/de-de/downloads/retiredproducts/mindstorms-ev3-lab/software/)
+- Nextion Display NX4024K032_011
 
 # Disclamer
 
