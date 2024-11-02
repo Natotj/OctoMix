@@ -3,8 +3,7 @@ int got=0;
 char m='"';
 String out="";
 
-String crs [7]=
-{
+String crs [7]= {
   "23021602089900000000000000000000",
   "11022202160212100799000000000400",
   "02040503030406990000000000000300",
@@ -16,13 +15,11 @@ String crs [7]=
 
 
 
-void setup()
-{
+void setup(){
   Serial.begin(9600);
 }
 
-void loop() // run over and over
-{
+void loop(){ // run over and over
   if (Serial.available()){
     got=Serial.read();
     
@@ -48,6 +45,4 @@ void loop() // run over and over
     }
   }
 
-
 }
-
