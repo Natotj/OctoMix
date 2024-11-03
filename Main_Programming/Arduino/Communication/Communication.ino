@@ -4,6 +4,7 @@ char m='"';
 String out="";
 
 String crs [7]= {
+  // ((ingredient + amount (in CL(two chracters))) * 6) + ((after which step to mix) * 2) + ((buffer) * 2) = 32 chracters 
   "23021602089900000000000000000000",
   "11022202160212100799000000000400",
   "02040503030406990000000000000300",
