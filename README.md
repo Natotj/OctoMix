@@ -2,7 +2,7 @@
 
 Code and 3D parts for a diy cocktailmixer powerd by Arduino, EV3 and Nextion Dislplay. Many Parts are (or will be) 3D printed.
 
-# NatotjsEnglish.error
+# NatotjEnglish.error
 
 - Vent = valve
 
@@ -14,9 +14,9 @@ Code and 3D parts for a diy cocktailmixer powerd by Arduino, EV3 and Nextion Dis
   - Programmed with the EV3 Lab (https://education.lego.com/de-de/downloads/retiredproducts/mindstorms-ev3-lab/software/)
 - Nextion Display NX4024K032_011
 
-# Disclamer
+# Disclaimer
 
-All Data is for private use only! Use at your own risk. 
+All the content from this repo is for private use only. Use at your own risk!
 
 # Contact
 
