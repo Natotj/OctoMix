@@ -5,7 +5,6 @@
 - Shots
 - Pause, weiter, stopp (pause, continue, stop)
 - zurück (back)
-- Home
 
 # Technical Options
 - Ventil belegung (Doppelbelegung ausschließen) (valve assignment)
