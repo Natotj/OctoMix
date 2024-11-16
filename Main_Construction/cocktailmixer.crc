@@ -8,6 +8,9 @@
 
    Schleifentiefe beträgt 4
 
+KE-Nummer 9 (PROFIL_2, ID = 118) 
+  in Modell VALVE_DOUBLE_UPPER_FRAME verweist auf:
+
 KE-Nummer 9 (KOMPONENTE, ID = 35) 
   in Modell VALVE_DOUBLE verweist auf:
 
@@ -15,8 +18,5 @@ KE-Nummer 19 (MUSTER_1, ID = 2947)
   in Modell VALVE_DOUBLE_UPPER_FRAME muss folgen nach:
 
 KE-Nummer 9 (PROFIL_2, ID = 118) 
-  in Modell VALVE_DOUBLE_UPPER_FRAME verweist auf:
-
-KE-Nummer 9 (KOMPONENTE, ID = 35) 
-  in Modell VALVE_DOUBLE - Kreis geschlossen.
+  in Modell VALVE_DOUBLE_UPPER_FRAME - Kreis geschlossen.
 
