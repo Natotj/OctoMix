@@ -1,0 +1,5 @@
+Gewicht mit Filament 216,5
+Gewicht der Rolle leer 164g 
+
+
+Koordinaten alle von toolhead aus gedacht. Pfeil runter Kopf runter, Bett hoch
