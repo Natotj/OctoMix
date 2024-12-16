@@ -1,18 +1,8 @@
-#define LCD_RS 4
-#define LCD_E 7
-#define LCD_D4 8
-#define LCD_D5 9
-#define LCD_D6 10
-#define LCD_D7 11
-#define JSTICK_VRX 3
-#define JSTICK_VRY 4
-#define JSTICK_SW 2
-#define LED 6
-#define USONIC_TRIG 1
-#define USONIC_ECHO 0
+#define LED 3
+#define USONIC_TRIG 12
+#define USONIC_ECHO 13
 
-int a[11]={0, 2, 7, 11, 15, 21, 35, 60, 95, 140, 255};
-// EV3 Werte: 3-5, 8-10, 12-14, 15-17, 18-20, 23-25, 28-31, 33-35, 38-40, 44-46
+int a[11]={0, 2, 5, 10, 18, 40, 70, 110, 160, 200, 255};
 // Befehle: 0 - STOPP
 //          1 - Vorwärts schnell
 //          2 - Vorwärts mittel
@@ -24,29 +14,67 @@ int a[11]={0, 2, 7, 11, 15, 21, 35, 60, 95, 140, 255};
 //          8 - Ventil front open
 //          9 - Ventil rear close
 //         10 - Ventil front close
-//int a[10]={3, 10, 22, 40, 64, 93, 127, 165, 207, 255}; alte werte
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
+
   pinMode(LED, OUTPUT);
-  delay(5000);
+
+  pinMode(USONIC_TRIG, OUTPUT);
+  digitalWrite(USONIC_TRIG, LOW);
+  pinMode(USONIC_ECHO, INPUT); 
 }
 
 void loop() {
 
-delay(2000);
+float duration, distance;
+digitalWrite(USONIC_TRIG, HIGH);
+delayMicroseconds(10);
+digitalWrite(USONIC_TRIG, LOW);
+duration = pulseIn(USONIC_ECHO, HIGH);
+distance = (duration*0.0343)/2;
+Serial.print("Distance: ");
+Serial.println(distance);
+delay(100000);
+/*
+delay(4000);
+int i;
+for(i=0; i < 11; i++) {
+  
+  analogWrite(LED, a[i]);
+  Serial.println(i);
+  delay(4000);
+}
+*/
 
-  analogWrite(LED, a[3]);
+/*
+delay(4000);
+
+  analogWrite(LED, a[7]);
   Serial.println("vorwäts");
-  delay(1000);
+  delay(8000);
   analogWrite(LED, 0);
   Serial.println("stop");
-  delay(1000);
-  analogWrite(LED, a[6]);
+  delay(4000);
+  analogWrite(LED, a[9]);
   Serial.println("rückwärts");
-  delay(1000);
+  delay(8000);
   analogWrite(LED, 0);
   Serial.println("stop");
 
+  delay(4000);
+
+  analogWrite(LED, a[8]);
+  Serial.println("vorwäts");
+  delay(8000);
+  analogWrite(LED, 0);
+  Serial.println("stop");
+  delay(4000);
+  analogWrite(LED, a[10]);
+  Serial.println("rückwärts");
+  delay(8000);
+  analogWrite(LED, 0);
+  Serial.println("stop");
+
+*/
 }
