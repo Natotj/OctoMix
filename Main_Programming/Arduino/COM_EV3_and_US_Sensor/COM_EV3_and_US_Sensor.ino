@@ -44,12 +44,22 @@ void setup() {
   pinMode(USONIC_TRIG, OUTPUT);
   digitalWrite(USONIC_TRIG, LOW);
   pinMode(USONIC_ECHO, INPUT); 
+  
 }
 
 void loop() {
 
 //Ultrasonic Sensor function
-Serial.println(EV3_Distance());
-EV3_Com(EV3_STOPP);
+//Serial.println(EV3_Distance());
+//EV3_Com(EV3_STOPP);
 Display_Com();
+Distance_Controll(20);
+Serial.println("Angekommen bei Stopp 1 :)");
+delay(1000);
+
+Distance_Controll(70);
+Serial.println("Angekommen bei Stopp 2 :)");
+delay(1000);
+
+
 }
