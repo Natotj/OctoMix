@@ -5,7 +5,7 @@ float EV3_Distance(){
   int validCount;
 
 do {
-
+    Display_Com(); //Dass immer auf das Display zugegriffen werden kann
     sum = 0;
     for(i=0; i<numMeasurements; i++) { //Für einen Mittelwert von 100 Werten
       digitalWrite(USONIC_TRIG, HIGH);

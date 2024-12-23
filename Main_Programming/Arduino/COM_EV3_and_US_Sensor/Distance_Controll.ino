@@ -36,6 +36,8 @@ void Distance_Controll(float soll) {
 
     out = proportional + (Ki * integral) - (Kd * differential);
 
+    Serial.println(out);
+    
     //übersetzen in EV3 Befehle
       if(out < 0){
         out = abs(out);
@@ -63,7 +65,7 @@ void Distance_Controll(float soll) {
     Serial.print("  Ist: ");
     Serial.print(ist);
     Serial.print("  Output: ");*/
-    Serial.println(out);
+    
     
     delay(dt * 1000);
   }
