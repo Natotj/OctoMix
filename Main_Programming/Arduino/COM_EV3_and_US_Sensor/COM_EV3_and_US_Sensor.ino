@@ -1,10 +1,14 @@
-#include <SoftwareSerial.h>
+bool upload_to_Nextion_Display = false; //go into upload mode for the Nextion display if set to true (Serial Monitor has to be off)
+
+#include <AltSoftSerial.h>
+#include <stdlib.h>
 
 #define LED 3
 #define USONIC_TRIG 12
 #define USONIC_ECHO 13
-#define RX2 5
-#define TX2 4
+#define RX2 8 // white
+#define TX2 9 // yellow
+#define PWM_NOT_USABLE 10 // due to AltSoftSerial.h
 
 #define EV3_STOPP 0
 #define EV3_VOR_S 1
@@ -46,16 +50,16 @@ String crs [12]= { //Cocktail Rezepte
   "25060699000000000000000000000000", //Whisky Ginger
   "25080999000000000000000000000000", //Jack Cola
   "28070799000000000000000000000000", //Gin Tonic
-
 };
+int crsMix[17];
 
 //Second Serial Port
-SoftwareSerial displaySerial(RX2, TX2);
+AltSoftSerial displaySerial; // RX2 pin 8, TX2 pin 9
 
 void setup() {
 // Serial ports initialisierung
-  Serial.begin(9600);
-  displaySerial.begin(9600);
+  Serial.begin(31250);
+  displaySerial.begin(31250);
 
 // LED initialisierung
   pinMode(LED, OUTPUT);
@@ -70,17 +74,23 @@ void setup() {
 
 // Main Ablauf
 void loop() {
-//Serial.println(EV3_Distance());
-//EV3_Com(EV3_STOPP);
-Display_Com();
+  if(upload_to_Nextion_Display == false){
 
-/*
-Distance_Controll(20);
-Serial.println("Angekommen bei Stopp 1 :)");
-delay(1000);
+  //Serial.println(EV3_Distance());
+  //EV3_Com(EV3_STOPP);
+  Display_Com();
 
-Distance_Controll(70);
-Serial.println("Angekommen bei Stopp 2 :)");
-delay(1000);
-*/
+  /*
+  Distance_Controll(20);
+  Serial.println("Angekommen bei Stopp 1 :)");
+  delay(1000);
+
+  Distance_Controll(70);
+  Serial.println("Angekommen bei Stopp 2 :)");
+  delay(1000);
+  */
+
+  }else{
+    upload_to_display();
+  }
 }

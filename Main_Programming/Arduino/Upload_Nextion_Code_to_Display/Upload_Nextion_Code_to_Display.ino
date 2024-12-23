@@ -10,14 +10,15 @@ AltSoftSerial nexSerial;
 
 void setup() {
 // Serial ports initialisierung
-  Serial.begin(31250);
-  nexSerial.begin(31250);  
+  Serial.begin(9600);
+  nexSerial.begin(9600);  
 }
 void loop() {
 
   while(true){
     while(Serial.available()) {
         nexSerial.write(Serial.read());
+        
     }
     while(nexSerial.available()) {
         Serial.write(nexSerial.read());
