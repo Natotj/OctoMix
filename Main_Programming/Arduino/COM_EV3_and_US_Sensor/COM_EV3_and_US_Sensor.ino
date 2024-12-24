@@ -35,6 +35,7 @@ bool upload_to_Nextion_Display = false; //go into upload mode for the Nextion di
 //         10 - Ventil front close
 
 int i; //incremental Variable
+
 int ID=0; //Cocktail ID
 String crs [12]= { //Cocktail Rezepte
   // ((ingredient + amount (in CL(two chracters))) * 6) + ((after which step to mix) * 2) + ((buffer) * 2) = 32 chracters 
@@ -51,7 +52,26 @@ String crs [12]= { //Cocktail Rezepte
   "25080999000000000000000000000000", //Jack Cola
   "28070799000000000000000000000000", //Gin Tonic
 };
-int crsMix[17];
+char crsMix[17];
+bool mixing = false;
+char valveNum = 0;
+char volume = 0;
+char shake1 = 0;
+char shake2 = 0;
+
+float valveDistance[10] = {
+  4.0,
+  12.7,
+  21.3,
+  30.0,
+  38.7,
+  47.3,
+  56.0,
+  64.7,
+  73.3,
+  82.0,
+};
+
 
 //Second Serial Port
 AltSoftSerial displaySerial; // RX2 pin 8, TX2 pin 9
@@ -72,25 +92,48 @@ void setup() {
 }
 
 
-// Main Ablauf
 void loop() {
-  if(upload_to_Nextion_Display == false){
+  if(upload_to_Nextion_Display == false){ //Main programm
 
-  //Serial.println(EV3_Distance());
-  //EV3_Com(EV3_STOPP);
+  EV3_Com(EV3_STOPP);
   Display_Com();
 
-  /*
-  Distance_Controll(20);
-  Serial.println("Angekommen bei Stopp 1 :)");
-  delay(1000);
+  if(mixing == true){
+    //wann shaken?
 
-  Distance_Controll(70);
-  Serial.println("Angekommen bei Stopp 2 :)");
-  delay(1000);
-  */
+    for(i=0; i<14; i=i+2){
+      valveNum = crsMix[i];
+      volume = crsMix[i+1];
 
-  }else{
+      //zum Ventil fahren
+
+      //richiges Ventil öffnen
+
+      //Pumpe anschalten
+
+      //richtige Zeit warten
+
+      //Pumpe ausschalten
+
+      //Ventil schließen
+
+      //Wenn i/2+1=shake1 oder =shake2 dann shaken
+
+        //shaken an
+
+        //while bestimmte anzahl durchläufe
+          //display com
+          //delay
+
+        //shaken aus
+
+    }
+    // Nachricht an Display, dass Cocktail fertig
+  }
+
+
+
+  }else{ // Programm zum Hochladen an das Display
     upload_to_display();
   }
 }
