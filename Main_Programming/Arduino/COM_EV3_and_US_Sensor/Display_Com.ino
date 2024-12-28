@@ -1,11 +1,13 @@
 int Display_Com() {
+// kommunikation mit dem Nextion Display
 
-  char m='"';
+  char mark='"';
   String out="";
   int got=0;
 
-// display Command 100: Cocktail ID incoming
-// display Command 101: crs_Mix incoming
+// display Command 100: Cocktail ID wurde gesented erwaret crs
+// display Command 101: crs_Mix wurde gesendet, Cocktail soll gemischt werden
+// display Command 254: Arduino soll resettet werden
 
   got = display_read();
 
@@ -23,9 +25,9 @@ int Display_Com() {
       out=crs[ID-1];
       
       displaySerial.print("CRS.txt="); //schreibt Variable CRS mit dem Cocktialrezept
-      displaySerial.print(m);
+      displaySerial.print(mark);
       displaySerial.print(out);
-      displaySerial.print(m);
+      displaySerial.print(mark);
         displaySerial.write(0X0ff);
         displaySerial.write(0X0ff);
         displaySerial.write(0X0ff);
@@ -48,16 +50,22 @@ int Display_Com() {
       }      
       isMixing = true;
     }
+
+// Arduino reset
+    if (got==254) {
+      //Arduino resetten
+    }
   }
 }
 
 
 char display_read(){
+// liest den Seriellen port vom Display aus
   int index = 0;
-  char buffer[4]; //8 weil 1x zeichen und 3x OxFF je 2bytes
+  char buffer[4]; //8 weil 1x zeichen und 3x 0xFF (oder 0x00) je 2bytes
 
   if(displaySerial.available()){
-    while(index < sizeof(buffer)) {
+    while(index < sizeof(buffer)) { // liest immer die werten vier stellen aus dem Buffer und return zum verarbeiten
       buffer[index] = displaySerial.read();
       index++;
     }

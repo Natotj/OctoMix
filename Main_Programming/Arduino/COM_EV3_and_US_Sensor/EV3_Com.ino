@@ -11,6 +11,7 @@ void EV3_Com(int command) {
     delay(4000);
   }
   */
+  
   if(command>=0 && command <=10){
     analogWrite(LED, EV3_COM[command]);
   } else {
