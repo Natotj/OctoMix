@@ -10,7 +10,7 @@ int Display_Com() {
   String out="";
   int got=0;
   int i;
-
+  char mark = '"';
 // display Command 100: Cocktail ID wurde gesented erwaret crs
 // display Command 101: crs_Mix wurde gesendet, Cocktail soll gemischt werden
 // display Command 254: Arduino soll resettet werden
@@ -30,30 +30,19 @@ int Display_Com() {
 
       out=crs[ID-1];
       
-      displaySerial.print("CRS.txt="); //schreibt Variable CRS mit dem Cocktialrezept
-      displaySerial.print(mark);
-      displaySerial.print(out);
-      displaySerial.print(mark);
-        displaySerial.write(0X0FF);
-        displaySerial.write(0X0FF);
-        displaySerial.write(0X0FF);
-
-      displaySerial.print("tm0.en=1");//triggert das programm zum auflisten
-        displaySerial.write(0X0FF);
-        displaySerial.write(0X0FF);
-        displaySerial.write(0X0FF);
-
-      Serial.println("Setting tm0 to 1!");
+      Display_Write("CRS.txt=", out); // schreibt Variable CRS mit dem Cocktialrezept
+      Display_Write("tm0.en=", "1"); // triggert das programm zum auflisten
     }
 
 // crsMix empfangen
     if (got==101) {
-      Serial.println("crsMix empfangen!");
+      Serial.println("crsMix empfangen! -> mixing now");
       delay(50);
-
       for(i=0; i<sizeof(crsMix); i++){
         crsMix[i] = Display_Read();
-      }      
+      }
+
+      Display_Write("Home.isMixing.val=","1");
       isMixing = true;
     }
 

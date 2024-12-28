@@ -37,7 +37,7 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
 // globale Vaiablen Deklarationen
 
   int ID=0; //Cocktail ID, gibt an welcher Cocktail angefragt ist, bzw. gerade gemischt wird
-  String crs [12]= { //Cocktail Rezepte
+  String crs [30]= { //Cocktail Rezepte
     // ((ingredient + amount (in CL(two chracters))) * 6) + ((after which step to mix) * 2) + ((buffer) * 2) = 32 chracters 
     // liste der ingredient ID in Dokumentation
     "23021602089900000000000000000000", //Cool Brezze
@@ -93,7 +93,7 @@ void setup() {
   pinMode(LED, OUTPUT);
 
   EV3_Com(EV3_STOP);
-  
+  Display_Write("Home.isMixing.val=","0");
 }
 
 
@@ -147,10 +147,7 @@ void loop() {
     }
     
     // Nachricht an Display, dass Cocktail fertig
-      displaySerial.print("isMixing.val=0"); // noch keine Integration in Nextion
-        displaySerial.write(0X0FF);
-        displaySerial.write(0X0FF);
-        displaySerial.write(0X0FF);  
+    Display_Write("Home.isMixing.val=","0");
     isMixing = false;
   }
 
