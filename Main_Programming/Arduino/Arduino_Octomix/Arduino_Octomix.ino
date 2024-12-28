@@ -34,8 +34,7 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
   #define EV3_VR_C 9 // Ventil hinten schließen
   #define EV3_VF_C 10 // Ventil vorne schließen
 
-// Vaiablen Deklarationen
-  int i; //incremental Variable
+// globale Vaiablen Deklarationen
 
   int ID=0; //Cocktail ID, gibt an welcher Cocktail angefragt ist, bzw. gerade gemischt wird
   String crs [12]= { //Cocktail Rezepte
@@ -99,7 +98,11 @@ void setup() {
 
 
 void loop() {
-  if(uploadToNextionDisplay == false){ //Main programm
+// lokale Variablen
+  int i = 0;
+
+// Main programm
+  if(uploadToNextionDisplay == false){ 
 
   EV3_Com(EV3_STOP);
   Display_Com();

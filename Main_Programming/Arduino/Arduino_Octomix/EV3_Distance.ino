@@ -3,6 +3,7 @@ float EV3_Distance(){
   float duration[numMeasurements]; // Laufzeit der Schallwelle der jeweilligen Messung
   float sum, mean, distance; // Umrechnung Laufzeit in Abstand
   int validCount; // Anzahl an Messungen im Rahmen der Tolleranz
+  int i;
 
 do {
     Display_Com(); //Dass immer auf das Display zugegriffen werden kann

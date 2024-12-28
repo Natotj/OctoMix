@@ -4,6 +4,7 @@ int Display_Com() {
   char mark='"';
   String out="";
   int got=0;
+  int i;
 
 // display Command 100: Cocktail ID wurde gesented erwaret crs
 // display Command 101: crs_Mix wurde gesendet, Cocktail soll gemischt werden
