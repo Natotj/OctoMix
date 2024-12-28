@@ -46,7 +46,7 @@ int Display_Com() {
       for(i=0; i<sizeof(crsMix); i++){
         crsMix[i] = display_read();
       }      
-      mixing = true;
+      isMixing = true;
     }
   }
 }

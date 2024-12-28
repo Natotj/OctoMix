@@ -20,7 +20,7 @@ void Distance_Controll(float soll) {
   bool erster_Durchlauf = true;
 
   while(abs(error) > delta_erlaubt){
-    
+    Display_Com();
     ist = EV3_Distance();
     error = soll - ist;
 
@@ -35,39 +35,30 @@ void Distance_Controll(float soll) {
     differential = (ist - last_ist) / dt;
 
     out = proportional + (Ki * integral) - (Kd * differential);
-
-    Serial.println(out);
     
     //übersetzen in EV3 Befehle
       if(out < 0){
         out = abs(out);
         if(out > 20){ // schnellstes Fahren
-          EV3_Com(EV3_VOR_S);
+          EV3_Com(EV3_FW_F);
         }else if(out > 10){ // mittleres Fahren
-          EV3_Com(EV3_VOR_M);
+          EV3_Com(EV3_FW_M);
         }else { // langsames Fahren
-          EV3_Com(EV3_VOR_L);
+          EV3_Com(EV3_FW_S);
         }
       }else{
         if(out > 20){ // schnellstes Fahren
-          EV3_Com(EV3_ZUR_S);
+          EV3_Com(EV3_B_F);
         }else if(out > 10){ // mittleres Fahren
-          EV3_Com(EV3_ZUR_M);
+          EV3_Com(EV3_B_M);
         }else { // langsames Fahren
-          EV3_Com(EV3_ZUR_L);
+          EV3_Com(EV3_B_S);
         }
       }
 
-    last_ist = ist;
-/*
-    Serial.print("soll: ");
-    Serial.print(soll);
-    Serial.print("  Ist: ");
-    Serial.print(ist);
-    Serial.print("  Output: ");*/
-    
+    last_ist = ist; 
     
     delay(dt * 1000);
   }
-  EV3_Com(EV3_STOPP);
+  EV3_Com(EV3_STOP);
 }
