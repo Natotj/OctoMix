@@ -109,6 +109,8 @@ void loop() {
 
   if(isMixing == true){ // Wenn Cocktail gemixt werden soll. isMixing wird von Display_Com gesetzt.
     //wann shaken?
+    shake1 = crsMix[15];
+    shake2 = crsMix[16];
 
     for(i=0; i<14; i=i+2){
       valveNum = crsMix[i];
@@ -124,17 +126,10 @@ void loop() {
         EV3_Com(EV3_VF_O);
       }
       
-      //Pumpe anschalten
-      digitalWrite(PUMP, HIGH);
-      
-      //richtige Zeit warten
-      for(i=0; i<(volume/flowrate)*1000; i=i+100){ //watet bis i größer als die wartezeit ist.
-        Display_Com();
-        delay(100);
-      }
-      
-      //Pumpe ausschalten
-      digitalWrite(PUMP, LOW);
+      //Pumpe
+      digitalWrite(PUMP, HIGH); // Pumpe anschalten
+      Expanded_delay(volume/flowrate); // richtige Zeit warten
+      digitalWrite(PUMP, LOW); //Pumpe ausschalten
       
       //Ventil schließen
       if(valveNum % 2 != 0){ //durch änderung im EV3 programm könnte man sich einen befehl spaaren
@@ -143,21 +138,19 @@ void loop() {
         EV3_Com(EV3_VF_C);
       }
 
-      //Wenn i/2+1=shake1 oder =shake2 dann shaken
-
-        //shaken an
-
-        //betimmte zeit warten
-        for(i=0; i<5*1000; i=i+100){ //watet bis i größer als die wartezeit ist. (x in sek * 1000)
-          Display_Com();
-          delay(100);
-        }
-
-        //shaken aus
-
+      //Shanken Wenn i/2+1=shake1 oder =shake2 dann shaken
+      if(i==shake1 || i==shake2) {
+        digitalWrite(SHAKER, HIGH); // shaken an
+        Expanded_delay(5*1000); // watet bis i größer als die wartezeit ist. (x in sek * 1000)
+        digitalWrite(SHAKER, LOW); // shaken aus
+      }
     }
     
     // Nachricht an Display, dass Cocktail fertig
+      displaySerial.print("isMixing.val=0"); // noch keine Integration in Nextion
+        displaySerial.write(0X0ff);
+        displaySerial.write(0X0ff);
+        displaySerial.write(0X0ff);  
     isMixing = false;
   }
 
