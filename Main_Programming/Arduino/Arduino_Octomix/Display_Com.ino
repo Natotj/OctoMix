@@ -1,7 +1,6 @@
 int Display_Com() {
 // kommunikation mit dem Nextion Display
 
-  char mark='"';
   String out="";
   int got=0;
   int i;
