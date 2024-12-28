@@ -148,9 +148,9 @@ void loop() {
     
     // Nachricht an Display, dass Cocktail fertig
       displaySerial.print("isMixing.val=0"); // noch keine Integration in Nextion
-        displaySerial.write(0X0ff);
-        displaySerial.write(0X0ff);
-        displaySerial.write(0X0ff);  
+        displaySerial.write(0X0FF);
+        displaySerial.write(0X0FF);
+        displaySerial.write(0X0FF);  
     isMixing = false;
   }
 
