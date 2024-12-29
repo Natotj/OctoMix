@@ -4,7 +4,7 @@
   // Variablen camelCase: erster Buchstabe immer klein
   // Eigene Funktinen Snake_case: erster Buchstabe immer groß
 
-bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Software zum Nextin display. Serial Monitor muss aus sein!
+bool uploadToNextionDisplay = true; // wenn true, dann upload modus für Software zum Nextin display. Serial Monitor muss aus sein!
 
 // libarys und definitionen
   #include <AltSoftSerial.h> // Software Serial port
