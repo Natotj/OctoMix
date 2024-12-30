@@ -38,7 +38,7 @@ int Display_Com() {
     if (got==101) {
       Serial.println("crsMix empfangen! -> mixing now");
       delay(50);
-      for(i=0; i<sizeof(crsMix); i++){
+      for(i=0; i<sizeof(crsMix)/sizeof(crsMix[0]); i++){
         crsMix[i] = Display_Read();
       }
 
@@ -62,7 +62,7 @@ char Display_Read(){
   char buffer[4]; //8 weil 1x zeichen und 3x 0xFF (oder 0x00) je 2bytes
 
   if(displaySerial.available()){
-    while(index < sizeof(buffer)) { // liest immer die werten vier stellen aus dem Buffer und return zum verarbeiten
+    while(index < 4) { // liest immer die werten vier stellen aus dem Buffer und return zum verarbeiten
       buffer[index] = displaySerial.read();
       index++;
     }
