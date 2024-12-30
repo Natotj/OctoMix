@@ -81,8 +81,8 @@ bool uploadToNextionDisplay = true; // wenn true, dann upload modus für Softwar
 // Main Programm
 void setup() {
 // Serial ports initialisierung
-  Serial.begin(9600);
-  displaySerial.begin(9600); //31250
+  Serial.begin(31250);
+  displaySerial.begin(31250);
 
 // Pin initialisierung
   pinMode(USONIC_TRIG, OUTPUT);
