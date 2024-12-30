@@ -9,7 +9,6 @@ bool uploadToNextionDisplay = true; // wenn true, dann upload modus für Softwar
 // libarys und definitionen
   #include <AltSoftSerial.h> // Software Serial port
   #include <stdlib.h>
-  #include <string.h>
 
   // Arduino Port Belegung
   #define LED 3
