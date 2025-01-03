@@ -4,21 +4,21 @@
   // Variablen camelCase: erster Buchstabe immer klein
   // Eigene Funktinen Snake_case: erster Buchstabe immer groß
 
-bool uploadToNextionDisplay = true; // wenn true, dann upload modus für Software zum Nextin display. Serial Monitor muss aus sein!
+bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Software zum Nextin display. Serial Monitor muss aus sein!
 
 // libarys und definitionen
   #include <AltSoftSerial.h> // Software Serial port
   #include <stdlib.h>
 
   // Arduino Port Belegung
-  #define LED 3
-  #define USONIC_TRIG 12 //Ultraschall trigger
-  #define USONIC_ECHO 13 //Ulstraschall Echo
+  #define LED 11
+  #define USONIC_TRIG 2 //Ultraschall trigger
+  #define USONIC_ECHO 3 //Ulstraschall Echo
   #define RX2 8 // Serial resive, weißes kabel von Nexiton display, AltSoftSerial standard
-  #define TX2 9 //  Serial transmit, weißes kabel von Nexiton display, AltSoftSerial standard
+  #define TX2 9 //  Serial transmit, gelbes kabel von Nexiton display, AltSoftSerial standard
   #define PWM_NOT_USABLE 10 // wird verwendet von Libary AltSoftSerial.h
-  #define PUMP 14 // noch nicht real verbunden
-  #define SHAKER 15 // noch nicht real verbunden
+  #define PUMP 13 // noch nicht real verbunden
+  #define SHAKER 13 // noch nicht real verbunden
 
   // EV3 Befehle, beziehen sich auf Index von Array in Funktion EV3_Com
   // FW -> forward, B -> Back, F-> fast, M -> medium, S -> slow, VR -> valve rear, VF -> valve front, O -> open, C -> close
@@ -37,7 +37,7 @@ bool uploadToNextionDisplay = true; // wenn true, dann upload modus für Softwar
 // globale Vaiablen Deklarationen
 
   int ID=0; //Cocktail ID, gibt an welcher Cocktail angefragt ist, bzw. gerade gemischt wird
-  String crs [30]= { //Cocktail Rezepte
+  String crs [12]= { //Cocktail Rezepte
     // ((ingredient + amount (in CL(two chracters))) * 6) + ((after which step to mix) * 2) + ((buffer) * 2) = 32 chracters 
     // liste der ingredient ID in Dokumentation
     "23021602089900000000000000000000", //Cool Brezze
@@ -90,10 +90,11 @@ void setup() {
   pinMode(USONIC_ECHO, INPUT); 
 
   pinMode(PUMP, OUTPUT);
+  pinMode(SHAKER, OUTPUT);
   pinMode(LED, OUTPUT);
 
   EV3_Com(EV3_STOP);
-  Display_Write("Home.isMixing.val=","0");
+  //Display_Write("Home.isMixing.val=","0");
 }
 
 
