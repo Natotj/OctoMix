@@ -118,8 +118,6 @@ void Display_Write(String command, String value){
 
   displaySerial.print(mark);
   displaySerial.print(command);
-  displaySerial.print(mark);
-  displaySerial.print(mark);
   displaySerial.print(value);
   displaySerial.print(mark);
     displaySerial.write(0X0ff);
