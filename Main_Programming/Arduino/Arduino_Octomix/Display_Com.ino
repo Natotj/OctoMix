@@ -116,9 +116,9 @@ void Display_Write(String command, String value){
 // for example: "1" or "0" for on/off or  "23021602089900000000000000000000" for Cool Brezze
   char mark='"';
 
-  //displaySerial.print(mark);
+  displaySerial.print(mark);
   displaySerial.print(command);
-  //displaySerial.print(mark);
+  displaySerial.print(mark);
   displaySerial.print(mark);
   displaySerial.print(value);
   displaySerial.print(mark);
