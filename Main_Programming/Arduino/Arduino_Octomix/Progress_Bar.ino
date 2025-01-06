@@ -32,7 +32,7 @@ void Progress_Bar(){
       String progressString = String(ceil(progress));
       
       // sends the rounded progress to the display
-      Display_Write("MIXMIX.progressBar.val=", progressString);
+      Display_Write_Number("MIXMIX.progressBar.val=", progressString);
       // resets the global values for the next use of the progress bar 
       if (progress >= 100){
         progress = 0;
