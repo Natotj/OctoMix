@@ -65,7 +65,7 @@ int Display_Com() {
         crsMix[i] = Display_Read();
       }
 
-      // Display_Write("Home.isMixing.val=","1");
+      Display_Write_Number("Home.isMixing.val=","1");
       isMixing = true;
     }
 

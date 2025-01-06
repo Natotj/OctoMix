@@ -163,7 +163,7 @@ void loop() {
     }
     
     // Nachricht an Display, dass Cocktail fertig
-    // Display_Write("Home.isMixing.val=","0");
+    Display_Write_Number("Home.isMixing.val=","0");
     isMixing = false;
   }
 
