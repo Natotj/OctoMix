@@ -65,7 +65,7 @@ int Display_Com() {
         crsMix[i] = Display_Read();
       }
 
-      Display_Write("Home.isMixing.val=","1");
+      Display_Write_Number("Home.isMixing.val=","1");
       isMixing = true;
     }
 
@@ -109,7 +109,7 @@ return buffer[0];
 }
 
 
-void Display_Write(String command, String value){
+void Display_Write_String(String command, String value){
 // function that writes something from the arduino to the display  
 // command = the command you want to trigger 
 // value = value that you want to transmitt to the command 
@@ -119,6 +119,10 @@ void Display_Write(String command, String value){
 // For text (.txt)
   displaySerial.print(command);
   displaySerial.print(mark);
+<<<<<<< HEAD
+=======
+  displaySerial.print(mark);
+>>>>>>> 0d996e254a49fe2df043289f5bf6a74774fbae0c
   displaySerial.print(value);
   displaySerial.print(mark);
     displaySerial.write(0X0ff);
@@ -135,4 +139,20 @@ void Display_Write(String command, String value){
     displaySerial.write(0X0ff);
     displaySerial.write(0X0ff);
 */
+}
+
+void Display_Write_Number(String command, String value){
+// function that writes something from the arduino to the display  
+// command = the command you want to trigger 
+// value = value that you want to transmitt to the command 
+// for example: "1" or "0" for on/off or  "23021602089900000000000000000000" for Cool Brezze
+  char mark='"';
+
+  displaySerial.print(mark);
+  displaySerial.print(command);
+  displaySerial.print(mark);
+  displaySerial.print(value);
+    displaySerial.write(0X0ff);
+    displaySerial.write(0X0ff);
+    Serial.write(0X0ff);
 }
