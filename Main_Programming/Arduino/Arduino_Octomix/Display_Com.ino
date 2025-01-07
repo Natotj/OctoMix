@@ -110,27 +110,12 @@ return buffer[0];
 
 
 void Display_Write_String(String command, String value){
-// function that writes something from the arduino to the display  
+// function that writes a string from the arduino to the display  
 // command = the command you want to trigger 
 // value = value that you want to transmitt to the command 
-// for example: "1" or "0" for on/off or  "23021602089900000000000000000000" for Cool Brezze
+// for example: [String] "23021602089900000000000000000000" for Cool Brezze
   char mark='"';
 
-// For text (.txt)
-  displaySerial.print(command);
-  displaySerial.print(mark);
-<<<<<<< HEAD
-=======
-  displaySerial.print(mark);
->>>>>>> 0d996e254a49fe2df043289f5bf6a74774fbae0c
-  displaySerial.print(value);
-  displaySerial.print(mark);
-    displaySerial.write(0X0ff);
-    displaySerial.write(0X0ff);
-    displaySerial.write(0X0ff);
-
-// For Numbers (.val)
-/*
   displaySerial.print(command);
   displaySerial.print(mark);
   displaySerial.print(value);
@@ -138,19 +123,16 @@ void Display_Write_String(String command, String value){
     displaySerial.write(0X0ff);
     displaySerial.write(0X0ff);
     displaySerial.write(0X0ff);
-*/
 }
 
 void Display_Write_Number(String command, String value){
-// function that writes something from the arduino to the display  
+// function that writes a numberfrom the arduino to the display  
 // command = the command you want to trigger 
 // value = value that you want to transmitt to the command 
-// for example: "1" or "0" for on/off or  "23021602089900000000000000000000" for Cool Brezze
+// for example: 1 or 0 for on/off
   char mark='"';
 
-  displaySerial.print(mark);
   displaySerial.print(command);
-  displaySerial.print(mark);
   displaySerial.print(value);
     displaySerial.write(0X0ff);
     displaySerial.write(0X0ff);
