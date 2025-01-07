@@ -21,8 +21,8 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
   #define RX2 8 // Serial resive, weißes kabel von Nexiton display, AltSoftSerial standard
   #define TX2 9 //  Serial transmit, gelbes kabel von Nexiton display, AltSoftSerial standard
   #define PWM_NOT_USABLE 10 // wird verwendet von Libary AltSoftSerial.h
-  #define PUMP 13 // noch nicht real verbunden
-  #define SHAKER 13 // noch nicht real verbunden
+  #define PUMP 5
+  #define SHAKER 6
 
   // EV3 Befehle, beziehen sich auf Index von Array in Funktion EV3_Com
   // FW -> forward, B -> Back, F-> fast, M -> medium, S -> slow, VR -> valve rear, VF -> valve front, O -> open, C -> close

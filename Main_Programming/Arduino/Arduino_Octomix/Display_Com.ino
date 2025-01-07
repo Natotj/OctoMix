@@ -10,7 +10,7 @@ int Display_Com() {
 // kommunikation mit dem Nextion Display
 
   String out="";
-  char got=0;
+  unsigned char got=0;
   int i;
   char mark = '"';
 // display Command 100: Cocktail ID wurde gesented erwaret crs
@@ -31,6 +31,8 @@ int Display_Com() {
       Serial.println(ID);
       // Commands zum Display
       Display_Write_String("CRS.txt=", crs[ID-1]); // schreibt Variable CRS mit dem Cocktialrezept
+      Serial.print("CRS: ");
+      Serial.println(crs[ID-1]);
       Display_Write_Number("tm0.en=", 1); // triggert das programm zum auflisten
     }
 
@@ -56,10 +58,10 @@ int Display_Com() {
 }
 
 
-char Display_Read(){
+unsigned char Display_Read(){
 // liest den Seriellen port vom Display aus
   int index = 0;
-  char buffer[8]; //4 weil 1x zeichen und 3x 0xFF (oder 0x00) je 2bytes
+  unsigned char buffer[4]; //4 weil 1x zeichen und 3x 0xFF (oder 0x00) je 2bytes
 
   if(displaySerial.available() >= 4){
     Serial.print("Display= ");
