@@ -45,16 +45,16 @@ int Display_Com() {
         displaySerial.write(0X0ff);
         displaySerial.write(0X0ff);
 
-//      Display_Write("CRS.txt=", out); // schreibt Variable CRS mit dem Cocktialrezept
+      Display_Write("CRS.txt=", out); // schreibt Variable CRS mit dem Cocktialrezept
       Serial.print("crs= ");
       Serial.println(out);
-
+/*
       displaySerial.print("tm0.en=1");
         displaySerial.write(0X0ff);
         displaySerial.write(0X0ff);
         displaySerial.write(0X0ff);
-
-//      Display_Write("tm0.en=", "1"); // triggert das programm zum auflisten
+*/
+      Display_Write("tm0.en=", "1"); // triggert das programm zum auflisten
     }
 
 // crsMix empfangen
@@ -116,11 +116,23 @@ void Display_Write(String command, String value){
 // for example: "1" or "0" for on/off or  "23021602089900000000000000000000" for Cool Brezze
   char mark='"';
 
-  displaySerial.print(mark);
+// For text (.txt)
   displaySerial.print(command);
+  displaySerial.print(mark);
   displaySerial.print(value);
   displaySerial.print(mark);
     displaySerial.write(0X0ff);
     displaySerial.write(0X0ff);
     displaySerial.write(0X0ff);
+
+// For Numbers (.val)
+/*
+  displaySerial.print(command);
+  displaySerial.print(mark);
+  displaySerial.print(value);
+  displaySerial.print(mark);
+    displaySerial.write(0X0ff);
+    displaySerial.write(0X0ff);
+    displaySerial.write(0X0ff);
+*/
 }
