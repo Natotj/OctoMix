@@ -21,40 +21,16 @@ int Display_Com() {
 
   if(got>99){
 // Cocktail ID empfangen und CRS senden
-  //debug Info
-    Serial.print("Sinvoll von Display= ");
-    Serial.println(got, HEX);
 
     if (got == 100) { // for receving a Cocktial ID and sending an Cocktail recipe
-      
-      delay(500);
       do{
         ID = Display_Read();
       }while(ID<=0); //geht raus wenn falsch. Wenn über 0 dann geht weiter weil 1<=0 falsch ist
- 
-      Serial.print("ID= ");
+      // debug Info
+      Serial.print("Cocktail ID= ");
       Serial.println(ID);
-
-      out=crs[ID-1];
-
-/*
-      displaySerial.print("CRS.txt=");
-      displaySerial.print(mark);
-      displaySerial.print(out);
-      displaySerial.print(mark);
-        displaySerial.write(0X0ff);
-        displaySerial.write(0X0ff);
-        displaySerial.write(0X0ff);
-*/
-      Display_Write_String("CRS.txt=", out); // schreibt Variable CRS mit dem Cocktialrezept
-      Serial.print("crs= ");
-      Serial.println(out);
-/*
-      displaySerial.print("tm0.en=1");
-        displaySerial.write(0X0ff);
-        displaySerial.write(0X0ff);
-        displaySerial.write(0X0ff);
-*/
+      // Commands zum Display
+      Display_Write_String("CRS.txt=", crs[ID-1]); // schreibt Variable CRS mit dem Cocktialrezept
       Display_Write_Number("tm0.en=", 1); // triggert das programm zum auflisten
     }
 
