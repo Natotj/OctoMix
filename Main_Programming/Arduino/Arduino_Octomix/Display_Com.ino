@@ -37,6 +37,7 @@ int Display_Com() {
 
       out=crs[ID-1];
 
+/*
       displaySerial.print("CRS.txt=");
       displaySerial.print(mark);
       displaySerial.print(out);
@@ -44,8 +45,8 @@ int Display_Com() {
         displaySerial.write(0X0ff);
         displaySerial.write(0X0ff);
         displaySerial.write(0X0ff);
-
-      Display_Write("CRS.txt=", out); // schreibt Variable CRS mit dem Cocktialrezept
+*/
+      Display_Write_String("CRS.txt=", out); // schreibt Variable CRS mit dem Cocktialrezept
       Serial.print("crs= ");
       Serial.println(out);
 /*
@@ -54,18 +55,18 @@ int Display_Com() {
         displaySerial.write(0X0ff);
         displaySerial.write(0X0ff);
 */
-      Display_Write("tm0.en=", "1"); // triggert das programm zum auflisten
+      Display_Write_Number("tm0.en=", 1); // triggert das programm zum auflisten
     }
 
 // crsMix empfangen
-    if (got==101) {
+    if (got==101) { 
       Serial.println("crsMix empfangen! -> mixing now");
       delay(50);
-      for(i=0; i<sizeof(crsMix)/sizeof(crsMix[0]); i++){
-        crsMix[i] = Display_Read();
+      for(i=0; i<sizeof(crsMix)/sizeof(crsMix[0]); i++){ //Muss vermutlich so geändert werden, dass immer geschaut wird ob etwas da ist und erst dann die schleife zuende führt
+        crsMix[i] = Display_Read(); //Möglichkeit, dass Display read nichts empfangen hat und 0 schreibt
       }
 
-      Display_Write_Number("Home.isMixing.val=","1");
+      Display_Write_Number("Home.isMixing.val=", 1);
       isMixing = true;
     }
 
@@ -125,7 +126,7 @@ void Display_Write_String(String command, String value){
     displaySerial.write(0X0ff);
 }
 
-void Display_Write_Number(String command, String value){
+void Display_Write_Number(String command, int value){
 // function that writes a numberfrom the arduino to the display  
 // command = the command you want to trigger 
 // value = value that you want to transmitt to the command 
@@ -136,5 +137,5 @@ void Display_Write_Number(String command, String value){
   displaySerial.print(value);
     displaySerial.write(0X0ff);
     displaySerial.write(0X0ff);
-    Serial.write(0X0ff);
+    displaySerial.write(0X0ff);
 }

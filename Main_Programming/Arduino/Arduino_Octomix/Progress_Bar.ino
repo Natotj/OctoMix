@@ -28,11 +28,9 @@ void Progress_Bar(){
 
       // progress
       progress = progress + percentAdd;
-      // convert to string for the Display_Write function & rounded for nextion
-      String progressString = String(ceil(progress));
-      
+
       // sends the rounded progress to the display
-      Display_Write_Number("MIXMIX.progressBar.val=", progressString);
+      Display_Write_Number("MIXMIX.progressBar.val=", ceil(progress));
       // resets the global values for the next use of the progress bar 
       if (progress >= 100){
         progress = 0;

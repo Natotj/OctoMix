@@ -95,7 +95,7 @@ void setup() {
 
   EV3_Com(EV3_STOP);
   Serial.print("\n");
-  Display_Write_Number("Home.isMixing.val=","0");
+  Display_Write_Number("Home.isMixing.val=", 0);
   Serial.print("\n");
   Display_Write_String("Home.isMixing.val=","Fortnite");
 }
@@ -163,7 +163,7 @@ void loop() {
     }
     
     // Nachricht an Display, dass Cocktail fertig
-    Display_Write_Number("Home.isMixing.val=","0");
+    Display_Write_Number("Home.isMixing.val=", 0);
     isMixing = false;
   }
 
