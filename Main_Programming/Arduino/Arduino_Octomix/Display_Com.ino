@@ -38,7 +38,7 @@ int Display_Com() {
 
 // crsMix empfangen
     if (got==101) { 
-      Serial.println("crsMix empfangen! -> mixing now");
+      Serial.println("Mixing");
       delay(50);
       for(i=0; i<sizeof(crsMix)/sizeof(crsMix[0]); i++){ //Muss vermutlich so geändert werden, dass immer geschaut wird ob etwas da ist und erst dann die schleife zuende führt
         crsMix[i] = Display_Read(); //Möglichkeit, dass Display read nichts empfangen hat und 0 schreibt

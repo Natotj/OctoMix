@@ -43,7 +43,7 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
   int ID=0; //Cocktail ID, gibt an welcher Cocktail angefragt ist, bzw. gerade gemischt wird
   String crs [12]= { //Cocktail Rezepte
     // ((ingredient + amount (in CL(two chracters))) * 6) + ((after which step to mix) * 2) + ((buffer) * 2) = 32 chracters 
-    // liste der ingredient ID in Dokumentation
+    // liste der ingredients ID in Dokumentation
     "23021602089900000000000000000000", //Cool Brezze
     "11022202160212100799000000000400", //Cherry Bomb
     "02040503030406990000000000000300", //Golden Ginger
