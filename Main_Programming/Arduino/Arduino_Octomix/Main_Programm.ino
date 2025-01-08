@@ -22,7 +22,6 @@ void loop() {
     for(i=0; i<14; i=i+2){
       valveNum = crsMix[i];
       volume = crsMix[i+1];
-    
       if (valveNum != 0){
         //zum Ventil fahren
         Distance_Controll(valveDistance[(valveNum+1)/2]); // gibt den aufgerundeten halbierten wert an valveDistance weiter an distance controll um dorthin zu fahren
@@ -36,6 +35,7 @@ void loop() {
           EV3_Com(EV3_VF_O);
           Serial.println("EV3_VF_O");
         }
+        delay(5*1000);
 
         Progress_Bar();
       
@@ -56,6 +56,7 @@ void loop() {
           EV3_Com(EV3_VF_C);
           Serial.println("EV3_VF_C");
         }
+        delay(5*1000);
         Progress_Bar();
 
         //Shanken Wenn i/2+1=shake1 oder =shake2 dann shaken

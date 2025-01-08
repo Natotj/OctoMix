@@ -10,7 +10,7 @@ void Distance_Controll(float setPoint) {
   float error = -2000; // Fehler
   float out = 0; // Regler ausgabe
   float lastIs = 0; //vorheriger Messwert
-  float deltaErlaubt = 0.2; //Erlaubte Abweichung der Positionierung in cm
+  float deltaErlaubt = 5; //Erlaubte Abweichung der Positionierung in cm
   float dt = 0.0005; //Zeitintervall in sek
   
   bool ersterDurchlauf = true;

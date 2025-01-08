@@ -31,8 +31,6 @@ int Display_Com() {
       Serial.println(ID);
       // Commands zum Display
       Display_Write_String("CRS.txt=", crs[ID-1]); // schreibt Variable CRS mit dem Cocktialrezept
-      Serial.print("CRS: ");
-      Serial.println(crs[ID-1]);
       Display_Write_Number("tm0.en=", 1); // triggert das programm zum auflisten
     }
 
@@ -64,15 +62,17 @@ unsigned char Display_Read(){
   unsigned char buffer[4]; //4 weil 1x zeichen und 3x 0xFF (oder 0x00) je 2bytes
 
   if(displaySerial.available() >= 4){
-    Serial.print("Display= ");
+    //Serial.print("Display= ");
 
     while(index < 4) { // liest immer vier stellen aus dem Buffer und return zum verarbeiten
       buffer[index] = displaySerial.read();
+      /*
       Serial.print(buffer[index],HEX);
       Serial.print("\t");
+      */
       index++;
     }
-    Serial.println(";");
+    //Serial.println(";");
 
 /*
     if(buffer[4]==0x0FF){ //Endet ein Command mit FF, dann ist dieser ein Touch bzw. Page Event und nicht relevant
