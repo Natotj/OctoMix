@@ -43,7 +43,7 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
   int ID=0; //Cocktail ID, gibt an welcher Cocktail angefragt ist, bzw. gerade gemischt wird
   String crs [12]= { //Cocktail Rezepte
     // ((ingredient + amount (in CL(two chracters))) * 6) + ((after which step to mix) * 2) + ((buffer) * 2) = 32 chracters 
-    // liste der ingredient ID in Dokumentation
+    // liste der ingredients ID in Dokumentation
     "23021602089900000000000000000000", //Cool Brezze
     "11022202160212100799000000000400", //Cherry Bomb
     "02040503030406990000000000000300", //Golden Ginger
@@ -64,7 +64,7 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
   char volume = 0; // welches Volumen jetzt gepumpt werden soll
   char shake1 = 0; // an welchem Schritt zum 1. mal geshaket werden soll
   char shake2 = 0; // an welchem Schritt zum 2. mal geshaket werden soll
-  float flowrate = 0.5; // Fließgeschwindigkeit in Cl pro sek
+  float flowrate = 0.1; // Fließgeschwindigkeit in Cl pro sek
 
   float valveDistance[10] = { // Abstand zwischen US-Sensor und EV3 um am richtigen Ventil zu stehen
     4.0,
