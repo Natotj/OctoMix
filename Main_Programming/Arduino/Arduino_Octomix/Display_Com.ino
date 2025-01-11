@@ -48,7 +48,7 @@ int Display_Com() {
 
 // Arduino reset
     if (got==254) {
-      Serial.println("Arduino Resart!");
+      Serial.println("Arduino Restart!");
       EV3_Com(EV3_STOP);
       Reset_Func();
     }
