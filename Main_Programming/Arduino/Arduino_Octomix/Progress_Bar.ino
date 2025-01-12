@@ -4,7 +4,8 @@ int progress = 0;
 int initProgress = 1;
 
 void Progress_Bar(){
-  int lenArray = sizeof(crsMix) / sizeof(crsMix[0]); 
+  // length of the crsMix array (subtracted by one to remove Null (string terminator)) 
+  int lenArray = sizeof(crsMix) / sizeof(crsMix[0]) - 1; 
   // how many steps there are for the mixing of a cocktail
   int mixSteps;
 
@@ -13,7 +14,7 @@ void Progress_Bar(){
     case 1:
       // check how many steps are going to be made -> later used for progress addition 
       for (int i = 0; i < lenArray; i++){
-        if (crsMix[i] != 0){
+        if (crsMix[i] != '0'){
           mixSteps++;
         }
       }
