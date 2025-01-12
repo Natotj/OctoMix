@@ -3,3 +3,7 @@ Gewicht der Rolle leer 164g
 
 
 Koordinaten alle von toolhead aus gedacht. Pfeil runter Kopf runter, Bett hoch
+
+Z Kompensation -0,15
+Originale Schichthöhen: 0,32mm und erste Schicht 0,28mm
+Originale max durchlauf: 13mm^2/s
