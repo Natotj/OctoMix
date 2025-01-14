@@ -7,7 +7,7 @@ void Progress_Bar(){
   // length of the crsMix array (subtracted by one to remove Null (string terminator)) 
   int lenArray = sizeof(crsMix) / sizeof(crsMix[0]) - 1; 
   // how many steps there are for the mixing of a cocktail
-  int mixSteps;
+  static int mixSteps;
 
   switch (initProgress){
     // Initialization. This is only being executed once as a setup 
