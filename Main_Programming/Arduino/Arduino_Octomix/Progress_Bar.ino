@@ -25,7 +25,7 @@ void Progress_Bar(){
     case 0:
       // 100 divided by mixSteps * how often Progress_Bar() is being called in a step 
       // Outcome -> how much is added each time Progress_Bar() is being called 
-      float percentAdd = 100 / (mixSteps * 5); 
+      float percentAdd = 100.0 / (mixSteps * 5); 
 
       // progress
       progress = progress + ceil(percentAdd);
@@ -36,6 +36,7 @@ void Progress_Bar(){
       if (progress >= 100){
         progress = 0;
         initProgress = 1;
+        mixSteps = 0;
       }
       break;
   }
