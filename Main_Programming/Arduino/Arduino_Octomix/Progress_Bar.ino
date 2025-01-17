@@ -10,28 +10,29 @@ void Progress_Bar(){
   static int mixSteps;
 
   switch (initProgress){
-    // Initialization. This is only being executed once as a setup 
+    // Initialization. This is only being executed as a setup for each progress bar 
     case 1:
-      // check how many steps are going to be made -> later used for progress addition 
+      // check how many steps are going to be made -> later used for percentAdd 
       for (int i = 0; i < lenArray; i++){
         if (crsMix[i] != '0'){
           mixSteps++;
         }
       }
-      // no more init 
+      // from 1 to 0 => no more Initialization 
       initProgress--;
       break;
 
     case 0:
-      // 100 divided by mixSteps * how often Progress_Bar() is being called in a step 
+      // 100.0 (to get a float and not a rounded down int) divided by mixSteps * how often Progress_Bar() is being called in a step 
       // Outcome -> how much is added each time Progress_Bar() is being called 
       float percentAdd = 100.0 / (mixSteps * 5); 
 
-      // progress
+      // progress rounded up with ceil
       progress = progress + ceil(percentAdd);
 
       // sends the rounded progress to the display
       Display_Write_Number("MIXMIX.progressBar.val=", progress);
+
       // resets the global values for the next use of the progress bar 
       if (progress >= 100){
         progress = 0;
