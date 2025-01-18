@@ -104,5 +104,4 @@ void setup() {
   Serial.write("\n");
   Serial.write("Arduino Start");
   Display_Write_Number("Home.isMixing.val=", 0);
-  }
 }
