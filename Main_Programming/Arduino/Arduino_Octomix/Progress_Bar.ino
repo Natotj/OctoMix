@@ -1,5 +1,5 @@
 // the progress in percent
-int progress = 0;
+float progress = 0.0;
 // Initialization of Progress_Bar: 1 == True, 0 == False
 int initProgress = 1;
 
@@ -27,11 +27,11 @@ void Progress_Bar(){
       // Outcome -> how much is added each time Progress_Bar() is being called 
       float percentAdd = 100.0 / (mixSteps * 5); 
 
-      // progress rounded up with ceil
-      progress = progress + ceil(percentAdd);
+      // progress addition 
+      progress = progress + percentAdd;
 
       // sends the rounded progress to the display
-      Display_Write_Number("MIXMIX.progressBar.val=", progress);
+      Display_Write_Number("MIXMIX.progressBar.val=", ceil(progress));
 
       // resets the global values for the next use of the progress bar 
       if (progress >= 100){
