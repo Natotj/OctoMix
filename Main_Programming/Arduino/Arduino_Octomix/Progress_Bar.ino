@@ -31,7 +31,7 @@ void Progress_Bar(){
       progress = progress + percentAdd;
 
       // sends the rounded progress to the display
-      Display_Write_Number("MIXMIX.progressBar.val=", ceil(progress));
+      Display_Write_Number("MIXMIX.progressBar.val=", floor(progress));
 
       // resets the global values for the next use of the progress bar 
       if (progress >= 100){
