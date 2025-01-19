@@ -1,13 +1,11 @@
 // the progress in percent
 float progress = 0.0;
 // Initialization of Progress_Bar: 1 == True, 0 == False
-int initProgress = 1;
+bool initProgress = true;
 
 void Progress_Bar(){
   // length of the crsMix array (subtracted by one to remove Null (string terminator)) 
   int lenArray = sizeof(crsMix) / sizeof(crsMix[0]) - 1; 
-  // how many steps there are for the mixing of a cocktail
-  static int mixSteps;
 
   switch (initProgress){
     // Initialization. This is only being executed as a setup for each progress bar 
@@ -19,7 +17,7 @@ void Progress_Bar(){
         }
       }
       // from 1 to 0 => no more Initialization 
-      initProgress--;
+      initProgress = false;
       break;
 
     case 0:
@@ -36,7 +34,7 @@ void Progress_Bar(){
       // resets the global values for the next use of the progress bar 
       if (progress >= 100){
         progress = 0;
-        initProgress = 1;
+        initProgress = true;
         mixSteps = 0;
       }
       break;

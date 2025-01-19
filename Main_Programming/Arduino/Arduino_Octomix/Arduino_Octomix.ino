@@ -58,6 +58,7 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
     "28070799000000000000000000000000", //Gin Tonic
   };
 
+  // char crsMix[17]; // Cocktailrezept mit tatsächlicher Ventilbelegung vom Nexiton display
   char crsMix[17]; // Cocktailrezept mit tatsächlicher Ventilbelegung vom Nexiton display
   bool isMixing = false; // True wenn ein Cocktail gemixt wird
   char valveNum = 0; // an welchem Ventil gearbeitet wird oder zu welchem gefahren wird
