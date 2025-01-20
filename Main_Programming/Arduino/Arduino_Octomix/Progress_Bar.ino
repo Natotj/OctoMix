@@ -32,7 +32,7 @@ void Progress_Bar(){
       Display_Write_Number("MIXMIX.progressBar.val=", floor(progress));
 
       // resets the global values for the next use of the progress bar 
-      if (progress >= 100){
+      if (progress >= 99){
         progress = 0;
         initProgress = true;
         mixSteps = 0;
