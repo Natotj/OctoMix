@@ -109,8 +109,6 @@ void Display_Write_Number(String command, int value){
 // command = the command you want to trigger 
 // value = value that you want to transmitt to the command 
 // for example: 1 or 0 for on/off
-  char mark='"';
-
   displaySerial.print(command);
   displaySerial.print(value);
     displaySerial.write(0X0ff);

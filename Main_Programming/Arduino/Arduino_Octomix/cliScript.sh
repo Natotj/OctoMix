@@ -17,14 +17,17 @@ elif [ $options -eq 2 ]; then
 elif [ $options -eq 3 ] || [ $options -eq 4 ]; then
   echo "Baudrate: "
   echo "(1): 31250"
-  echo "(2): Custom"
+  echo "(2): 9600"
+  echo "(3): Custom"
   echo ""
   read baudrateOptions
 
   # Checks if you want a 31250 or a custom baudrate 
   if [ $baudrateOptions -eq 1 ]; then
     baudrate=31250
-  elif [ $baudrateOptions -eq 2 ]; then
+  elif [ $baudrateOptions -eq 1 ]; then
+    baudrate=9600
+  elif [ $baudrateOptions -eq 3 ]; then
     echo ""
     echo "Enter baudrate: "
     read baudrate
