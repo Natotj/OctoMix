@@ -65,14 +65,14 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
   char volume = 0; // welches Volumen jetzt gepumpt werden soll
   char shake1 = 0; // an welchem Schritt zum 1. mal geshaket werden soll
   char shake2 = 0; // an welchem Schritt zum 2. mal geshaket werden soll
-  float flowrate = 0.1; // Fließgeschwindigkeit in Cl pro sek
+  float flowrate = 0.01; // Fließgeschwindigkeit in Cl pro sek
   int mixSteps; // how many steps there are for the mixing of a cocktail
   float valveDistance[10] = { // Abstand zwischen US-Sensor und EV3 um am richtigen Ventil zu stehen
     4.0,
     12.7,
     21.3,
-    30.0,
-    38.7,
+    32.0, //Ventil 7,8 festgeschraubt
+    40.4889, //Ventil 9,10 festgeschraubt
     47.3,
     56.0,
     64.7,

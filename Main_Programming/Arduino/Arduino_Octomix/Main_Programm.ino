@@ -5,10 +5,10 @@
 void loop() {
 // lokale Variablen
   int i = 0;
+  EV3_Com(EV3_STOP);
 
   if(uploadToNextionDisplay == false){ // run normal programm
 ////////// Ablauf Standby
-  EV3_Com(EV3_STOP);
   Display_Com();
 
 ////////// Ablauf Cocktail Mixen
@@ -35,7 +35,7 @@ void loop() {
           EV3_Com(EV3_VF_O);
           Serial.println("EV3_VF_O");
         }
-        delay(5*1000);
+        delay(10*1000);
 
         Progress_Bar();
       
@@ -56,7 +56,7 @@ void loop() {
           EV3_Com(EV3_VF_C);
           Serial.println("EV3_VF_C");
         }
-        delay(5*1000);
+        delay(10*1000);
         Progress_Bar();
 
         //Shanken Wenn i/2+1=shake1 oder =shake2 dann shaken
