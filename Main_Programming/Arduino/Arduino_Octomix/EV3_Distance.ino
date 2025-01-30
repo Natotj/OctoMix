@@ -1,5 +1,5 @@
 float EV3_Distance(){
-  const int numMeasurements = 50; // Anzahl an Messungen für den US-Sensor
+  const int numMeasurements = 60; // Anzahl an Messungen für den US-Sensor
   float duration[numMeasurements]; // Laufzeit der Schallwelle der jeweilligen Messung
   float sum, mean, distance; // Umrechnung Laufzeit in Abstand
   int validCount; // Anzahl an Messungen im Rahmen der Tolleranz

@@ -7,6 +7,17 @@ void loop() {
   int i = 0;
   EV3_Com(EV3_STOP);
 
+/*
+  while(true) {
+    Distance_Controll(valveDistance[4]);
+    delay(5000);
+    Distance_Controll(valveDistance[8]);
+    delay(5000);
+    Distance_Controll(valveDistance[3]);
+    delay(5000);
+  }
+*/
+
   if(uploadToNextionDisplay == false){ // run normal programm
 ////////// Ablauf Standby
   Display_Com();

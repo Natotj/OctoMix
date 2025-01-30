@@ -70,7 +70,7 @@ bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Softwa
     4.0,
     12.7,
     21.3,
-    32.0, //Ventil 7,8 festgeschraubt
+    30.8, //Ventil 7,8 festgeschraubt
     40.4889, //Ventil 9,10 festgeschraubt
     47.3,
     56.0,
