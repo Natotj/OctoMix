@@ -1,6 +1,6 @@
 // the progress in percent
 float progress = 0.0;
-// Initialization of Progress_Bar: 1 == True, 0 == False
+// Initialization of Progress_Bar 
 bool initProgress = true;
 
 void Progress_Bar(){
@@ -16,7 +16,7 @@ void Progress_Bar(){
           mixSteps++;
         }
       }
-      // from 1 to 0 => no more Initialization 
+      // from 1 (true) to 0 (false) => no more Initialization 
       initProgress = false;
       break;
 
@@ -31,8 +31,8 @@ void Progress_Bar(){
       // sends the rounded progress to the display
       Display_Write_Number("MIXMIX.progressBar.val=", floor(progress));
 
-      // resets the global values for the next use of the progress bar 
-      if (progress >= 100){
+      // resets the values for the next use of the progress bar 
+      if (progress >= 99){
         progress = 0;
         initProgress = true;
         mixSteps = 0;

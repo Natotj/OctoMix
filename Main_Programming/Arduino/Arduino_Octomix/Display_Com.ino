@@ -105,12 +105,10 @@ void Display_Write_String(String command, String value){
 }
 
 void Display_Write_Number(String command, int value){
-// function that writes a numberfrom the arduino to the display  
+// function that writes a number from the arduino to the display  
 // command = the command you want to trigger 
 // value = value that you want to transmitt to the command 
 // for example: 1 or 0 for on/off
-  char mark='"';
-
   displaySerial.print(command);
   displaySerial.print(value);
     displaySerial.write(0X0ff);
