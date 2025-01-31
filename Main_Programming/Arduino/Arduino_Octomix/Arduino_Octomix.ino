@@ -101,6 +101,6 @@ void setup() {
   digitalWrite(LED, LOW);
 
   EV3_Com(EV3_STOP);
-  writeLine("Arduino Start");
+  printLine("Arduino Start");
   Display_Write_Number("Home.isMixing.val=", 0);
 }
