@@ -33,6 +33,6 @@ do {
     distance = (mean * 0.0343) / 2; // Distanz berechnen
 
 } while(distance != distance); //Wenn distance NaN ist dann ist die abfrage true
-Serial.println(distance);
+
 return distance;
 }

@@ -5,8 +5,7 @@
 
 void (*Reset_Func)(void) = 0; // Pointer auf Adresse 0 (Reset-Vektor) zum resetten vom Arduino
 
-
-int Display_Com() {
+void Display_Com() {
 // kommunikation mit dem Nextion Display
 
   String out="";
@@ -27,8 +26,8 @@ int Display_Com() {
         ID = Display_Read();
       }while(ID<=0); //geht raus wenn falsch. Wenn über 0 dann geht weiter weil 1<=0 falsch ist
       // debug Info
-      Serial.print("Cocktail ID= ");
-      Serial.println(ID);
+      printLine("got ID");
+
       // Commands zum Display
       Display_Write_String("CRS.txt=", crs[ID-1]); // schreibt Variable CRS mit dem Cocktialrezept
       Display_Write_Number("tm0.en=", 1); // triggert das programm zum auflisten
@@ -36,7 +35,7 @@ int Display_Com() {
 
 // crsMix empfangen
     if (got==101) { 
-      Serial.println("Mixing");
+      printLine("Mixing");
       delay(50);
       for(i=0; i<sizeof(crsMix)/sizeof(crsMix[0]); i++){ //Muss vermutlich so geändert werden, dass immer geschaut wird ob etwas da ist und erst dann die schleife zuende führt
         crsMix[i] = Display_Read(); //Möglichkeit, dass Display read nichts empfangen hat und 0 schreibt
@@ -48,7 +47,6 @@ int Display_Com() {
 
 // Arduino reset
     if (got==254) {
-      Serial.println("Arduino Restart!");
       EV3_Com(EV3_STOP);
       Reset_Func();
     }
@@ -99,9 +97,7 @@ void Display_Write_String(String command, String value){
   displaySerial.print(mark);
   displaySerial.print(value);
   displaySerial.print(mark);
-    displaySerial.write(0X0ff);
-    displaySerial.write(0X0ff);
-    displaySerial.write(0X0ff);
+    displayComandEnd();
 }
 
 void Display_Write_Number(String command, int value){
@@ -111,7 +107,5 @@ void Display_Write_Number(String command, int value){
 // for example: 1 or 0 for on/off
   displaySerial.print(command);
   displaySerial.print(value);
-    displaySerial.write(0X0ff);
-    displaySerial.write(0X0ff);
-    displaySerial.write(0X0ff);
+    displayComandEnd();
 }
