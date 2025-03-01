@@ -9,9 +9,9 @@ void Progress_Bar(){
 
   switch (initProgress){
     // Initialization. This is only being executed as a setup for each progress bar 
-    case 1:
+    case true:
       // check how many steps are going to be made -> later used for percentAdd 
-      for (int i = 0; i < lenArray; i++){
+      for (int i = 0; i < lenArray; i += 2){
         if (crsMix[i] != '0'){
           mixSteps++;
         }
@@ -20,7 +20,7 @@ void Progress_Bar(){
       initProgress = false;
       break;
 
-    case 0:
+    case false:
       // 100.0 (to get a float and not a rounded down int) divided by mixSteps * how often Progress_Bar() is being called in a step 
       // Outcome -> how much is added each time Progress_Bar() is being called 
       float percentAdd = 100.0 / (mixSteps * 5); 
