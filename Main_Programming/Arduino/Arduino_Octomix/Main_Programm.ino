@@ -1,28 +1,17 @@
 //////////////////////////////////////////////////////////////
 //          Main Program wich needs to be run
 /////////////////////////////////////////////////////////////
+// lokale Variablen
+int i = 0;
 
 void loop() {
-// lokale Variablen
-  int i = 0;
+  
+//// Standby
+  Display_Com();
   EV3_Com(EV3_STOP);
 
-/*
-  while(true) {
-    Distance_Controll(valveDistance[4]);
-    delay(5000);
-    Distance_Controll(valveDistance[8]);
-    delay(5000);
-    Distance_Controll(valveDistance[3]);
-    delay(5000);
-  }
-*/
 
-  if(uploadToNextionDisplay == false){ // run normal programm
-////////// Ablauf Standby
-  Display_Com();
-
-////////// Ablauf Cocktail Mixen
+//// Ablauf Cocktail Mixen
   if(isMixing == true){ // Wenn Cocktail gemixt werden soll. isMixing wird von Display_Com gesetzt.
     //wann shaken?
     shake1 = crsMix[15];
@@ -35,7 +24,9 @@ void loop() {
       volume = crsMix[i+1];
       if (valveNum != 0){
         //zum Ventil fahren
-        Distance_Controll(valveDistance[(valveNum+1)/2]); // gibt den aufgerundeten halbierten wert an valveDistance weiter an distance controll um dorthin zu fahren
+        if(testAblauf == false) Distance_Controll(valveDistance[(valveNum+1)/2]); // gibt den aufgerundeten halbierten wert an valveDistance weiter an distance controll um dorthin zu fahren
+        else Expanded_delay(1000);
+
         printLine("am Vent");
         Progress_Bar();  
         //richiges Ventil öffnen
@@ -52,7 +43,7 @@ void loop() {
       
         //Pumpe
         digitalWrite(PUMP, HIGH); // Pumpe anschalten
-        Serial.write("Pumpen: ");
+        printLine("Pumpen");
         Serial.println(volume);
         Expanded_delay(volume/flowrate); // richtige Zeit warten
         digitalWrite(PUMP, LOW); //Pumpe ausschalten
@@ -85,8 +76,5 @@ void loop() {
     isMixing = false;
   }
 
-////////// Ablauf zum Hochladen des Codes auf das Display
-  } else { 
-    upload_to_display();
-  }
+  if(uploadToNextionDisplay == true) upload_to_display(); //Upload a Program to the Nextion display
 }

@@ -11,9 +11,10 @@ void EV3_Com(int command) {
     delay(4000);
   }
   */
-  
   if(command>=0 && command <=10){
     analogWrite(LED, EV3_COM[command]);
+      printLine("EV3_Com_Command = ");
+      Serial.print(command);
   } else {
     analogWrite(LED, 0);
   }

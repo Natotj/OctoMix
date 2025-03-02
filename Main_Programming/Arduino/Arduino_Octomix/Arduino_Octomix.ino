@@ -9,6 +9,7 @@
   // Eigene Funktinen Snake_case: erster Buchstabe immer groß
 
 bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Software zum Nextin display. Serial Monitor muss aus sein!
+bool testAblauf = true; //nur für Testzwecke
 
 // libarys und definitionen
   #include <AltSoftSerial.h> // Software Serial port
