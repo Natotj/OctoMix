@@ -18,7 +18,7 @@ void Progress_Bar(){
       }
       // from 1 (true) to 0 (false) => no more Initialization 
       initProgress = false;
-      break;
+    break;
 
     case false:
       // 100.0 (to get a float and not a rounded down int) divided by mixSteps * how often Progress_Bar() is being called in a step 
@@ -37,6 +37,6 @@ void Progress_Bar(){
         initProgress = true;
         mixSteps = 0;
       }
-      break;
+    break;
   }
 }
