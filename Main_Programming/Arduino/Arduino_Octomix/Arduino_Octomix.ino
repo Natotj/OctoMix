@@ -9,7 +9,7 @@
   // Eigene Funktinen Snake_case: erster Buchstabe immer groß
 
 bool uploadToNextionDisplay = false; // wenn true, dann upload modus für Software zum Nextin display. Serial Monitor muss aus sein!
-bool testAblauf = true; //nur für Testzwecke
+bool testRun = true; //nur für Testzwecke
 
 // libarys und definitionen
   #include <AltSoftSerial.h> // Software Serial port
@@ -41,6 +41,7 @@ bool testAblauf = true; //nur für Testzwecke
 
 // globale Vaiablen Deklarationen
 
+//   Cocktail Rezept Variablen
   int ID=0; //Cocktail ID, gibt an welcher Cocktail angefragt ist, bzw. gerade gemischt wird
   String crs [12]= { //Cocktail Rezepte
     // ((ingredient + amount (in CL(two chracters))) * 6) + ((after which step to mix) * 2) + ((buffer) * 2) = 32 chracters 
@@ -58,15 +59,18 @@ bool testAblauf = true; //nur für Testzwecke
     "25080999000000000000000000000000", //Jack Cola
     "28070799000000000000000000000000", //Gin Tonic
   };
-
   char crsMix[17]; // Cocktailrezept mit tatsächlicher Ventilbelegung vom Nexiton display
-  bool isMixing = false; // True wenn ein Cocktail gemixt wird
   char valveNum = 0; // an welchem Ventil gearbeitet wird oder zu welchem gefahren wird
   char volume = 0; // welches Volumen jetzt gepumpt werden soll
   char shake1 = 0; // an welchem Schritt zum 1. mal geshaket werden soll
   char shake2 = 0; // an welchem Schritt zum 2. mal geshaket werden soll
-  float flowrate = 0.01; // Fließgeschwindigkeit in Cl pro sek
+
+//   Programm Variablen für Mixen
+  bool isMixing = false; // True wenn ein Cocktail gemixt wird
   int mixSteps; // how many steps there are for the mixing of a cocktail
+
+//   Variablen der Realen Welt für das Mixen
+  float flowrate = 1; // Fließgeschwindigkeit in Cl pro sek
   float valveDistance[10] = { // Abstand zwischen US-Sensor und EV3 um am richtigen Ventil zu stehen
     4.0,
     12.7,
@@ -79,17 +83,19 @@ bool testAblauf = true; //nur für Testzwecke
     73.3,
     82.0,
   };
+  int valveDelayOpen = 10; //Zeit die der EV3 zum öffnen eines Ventils benötigt in sekunden
+  int valveDelayClose = 10; //Zeit die der EV3 zum schließen eines Ventils benötigt in sekunden
+
 
 // initialisierungen
   AltSoftSerial displaySerial; // zweiter Serieller Port, RX2 pin 8, TX2 pin 9,
 
-// Main Programm
 void setup() {
-// Serial ports initialisierung
+//   Serial ports initialisierung
   Serial.begin(31250);
   displaySerial.begin(31250);
 
-// Pin initialisierung
+//   Pin initialisierung
   pinMode(USONIC_TRIG, OUTPUT);
   digitalWrite(USONIC_TRIG, LOW);
   pinMode(USONIC_ECHO, INPUT); 
