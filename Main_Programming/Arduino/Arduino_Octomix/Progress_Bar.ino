@@ -1,3 +1,5 @@
+// function that is responsible for the progress bar, which is going to be displayed on the nextion display during mixing
+
 // the progress in percent
 float progress = 0.0;
 // Initialization of Progress_Bar 
