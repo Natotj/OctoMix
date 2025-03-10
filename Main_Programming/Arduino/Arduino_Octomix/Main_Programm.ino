@@ -64,7 +64,7 @@ void loop() {
           EV3_Com(EV3_VF_O);
           printLine("EV3_VF_O");
         }
-        delay(10*1000);
+        delay(12*1000);
 
         Progress_Bar();
       
@@ -85,7 +85,7 @@ void loop() {
           EV3_Com(EV3_VF_C);
           printLine("EV3_VF_C");
         }
-        delay(10*1000);
+        delay(15*1000);
         Progress_Bar();
 
         //Shanken Wenn i/2+1=shake1 oder =shake2 dann shaken

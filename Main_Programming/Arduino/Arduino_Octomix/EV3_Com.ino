@@ -1,6 +1,6 @@
 void EV3_Com(int command) {
   
-  int EV3_COM[11]={0, 2, 5, 10, 18, 40, 70, 110, 160, 200, 255};
+  int EV3_COM[11]={0, 2, 5, 10, 18, 40, 70, 110, 160, 212, 255};
   
   /* Only for Testing the values
   delay(4000);
