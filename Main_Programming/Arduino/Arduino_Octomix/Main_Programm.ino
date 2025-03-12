@@ -10,9 +10,18 @@ void loop() {
   Display_Com();
   if(testRun == false) EV3_Com(EV3_STOP);
 
+while(true){
+    delay(4000);
+  int i;
+  for(i=0; i < 9; i++) {
+    analogWrite(LED, EV3_COM[i]);
+    Serial.println(i);
+    delay(4000);
+  }
+}
 // Programm zu Testzwecken für den Main Ablauf
   if(testRun == true){
-    crsMix[0] = 0xF;  //15
+   crsMix[0] = 0xF;  //15
     crsMix[1] = 0x4;  //04
     crsMix[2] = 0x15; //21
     crsMix[3] = 0x2; //02
@@ -43,7 +52,7 @@ void loop() {
     Progress_Bar();
 
     for(i=0; i<16; i+=2){
-      printLine("---New Valve---");
+      printLine("New V");
 
       valveNum = crsMix[i];
       volume = crsMix[i+1];
