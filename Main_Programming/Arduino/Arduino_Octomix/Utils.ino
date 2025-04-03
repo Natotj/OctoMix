@@ -13,3 +13,14 @@ void displayComandEnd(){
   }
 }
 
+void valveMove(int position) {
+    if(position % 2 != 0){ //durch änderung im EV3 programm könnte man sich einen befehl spaaren
+    EV3_Com(EV3_VR);
+    printLine("EV3_VR");
+  } else {
+    EV3_Com(EV3_VF);
+    printLine("EV3_VF");
+  }
+  Expanded_delay(15*1000);
+  EV3_Com(EV3_STOP);
+}

@@ -34,8 +34,8 @@ bool testRun = false; //nur für Testzwecke
   #define EV3_B_F 4 // zurück schnell
   #define EV3_B_M 5 // zurück mittel
   #define EV3_B_S 6 // zurück schnell
-  #define EV3_VR_O 7 // Ventil hinten öffnen / schließen
-  #define EV3_VF_C 8 // Ventil vorne öffnen / schließen
+  #define EV3_VR 7 // Ventil hinten öffnen / schließen
+  #define EV3_VF 8 // Ventil vorne öffnen / schließen
 
 // globale Vaiablen Deklarationen
 
