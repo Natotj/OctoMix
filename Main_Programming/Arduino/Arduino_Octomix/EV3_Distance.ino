@@ -11,6 +11,8 @@ do {
     
     sum = 0;
     for(i=0; i<numMeasurements; i++) { //Misst so oft wie numMeasurements vorgibt
+      digitalWrite(USONIC_TRIG, LOW);
+      delayMicroseconds(20);
       digitalWrite(USONIC_TRIG, HIGH);
       delayMicroseconds(10);
       digitalWrite(USONIC_TRIG, LOW);
@@ -24,7 +26,7 @@ do {
     sum = 0;
     validCount = 0;
     for (int i = 0; i < numMeasurements; i++) { 
-      if (abs(duration[i] - mean) <= 0.05 * mean) { // Werte innerhalb 5% Abweichung
+      if (abs(duration[i] - mean) <= 0.1 * mean) { // Werte innerhalb 5% Abweichung
         sum += duration[i];
         validCount++;
       }

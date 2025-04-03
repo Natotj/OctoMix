@@ -11,7 +11,7 @@ void Distance_Controll(float setPoint) {
   float out = 0; // Regler ausgabe
   float lastIs = 0; //vorheriger Messwert
   float deltaErlaubt = 0.3; //Erlaubte Abweichung der Positionierung in cm
-  float dt = 0.0005; //Zeitintervall in sek
+  float dt = 0.157; //schätzung des Zeitintervall in sek (1m*50intervalle/343m/s airSpeed + +50*0.00002s wartezeit0.01s berechnungsdauer)
   
   bool ersterDurchlauf = true;
 
