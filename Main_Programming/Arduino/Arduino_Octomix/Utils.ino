@@ -13,6 +13,17 @@ void displayComandEnd(){
   }
 }
 
+void temperatureRead(){
+int tempTest;
+
+  currentMillis = millis();
+  if (currentMillis - previousMillis >= 240000) {  
+        previousMillis = currentMillis;  // Zeitstempel aktualisieren
+        tempTest = dht11.readTemperature(); //um immer die richtige Temperatur zu haben
+        if (tempTest < 60) temp = tempTest;
+    }
+}
+
 void valveMove(int position) {
     if(position % 2 != 0){ //durch änderung im EV3 programm könnte man sich einen befehl spaaren
     EV3_Com(EV3_VR);

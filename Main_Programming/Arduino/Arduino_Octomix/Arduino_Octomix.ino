@@ -14,11 +14,14 @@ bool testRun = false; //nur für Testzwecke
 // libarys und definitionen
   #include <AltSoftSerial.h> // Software Serial port
   #include <stdlib.h>
+  #include <math.h>
+  #include <DHT11.h>
 
   // Arduino Port Belegung
   #define LED 11
   #define USONIC_TRIG 2 //Ultraschall trigger
   #define USONIC_ECHO 3 //Ulstraschall Echo
+  #define TEMPERATURE 4 //DHT11 Temperatur und Feuchtigkeitssensor
   #define RX2 8 // Serial resive, weißes kabel von Nexiton display, AltSoftSerial standard
   #define TX2 9 //  Serial transmit, gelbes kabel von Nexiton display, AltSoftSerial standard
   #define PWM_NOT_USABLE 10 // wird verwendet von Libary AltSoftSerial.h
@@ -70,23 +73,30 @@ bool testRun = false; //nur für Testzwecke
 //   Variablen der Realen Welt für das Mixen
   float flowrate = 1; // Fließgeschwindigkeit in Cl pro sek
   float valveDistance[10] = { // Abstand zwischen US-Sensor und EV3 um am richtigen Ventil zu stehen
-    4.0,
-    12.7,
-    21.3,
-    30.8, //Ventil 7,8 festgeschraubt
-    40.4889, //Ventil 9,10 festgeschraubt
-    47.3,
+    0.899, //fix
+    12.958, //fix
+    21.681, //fix
+    31.225, //Ventil 7,8 festgeschraubt
+    40.873, //Ventil 9,10 festgeschraubt
+    53.738, //fix
     56.0,
     64.7,
     73.3,
     82.0,
   };
+
+  int temp = 20; //Temperatur, wird jede minute geupdatet von dht11.readTemperature() in Main
+  unsigned long previousMillis = 0; //für die Abfrage des Temp Sensors alle x sekunden
+  unsigned long currentMillis = millis(); //für die Abfrage des Temp Sensors alle x sekunden
+
   int valveDelayOpen = 10; //Zeit die der EV3 zum öffnen eines Ventils benötigt in sekunden
   int valveDelayClose = 10; //Zeit die der EV3 zum schließen eines Ventils benötigt in sekunden
 
 
 // initialisierungen
   AltSoftSerial displaySerial; // zweiter Serieller Port, RX2 pin 8, TX2 pin 9,
+  
+  DHT11 dht11(TEMPERATURE); //DHT11 class
 
 void setup() {
 //   Serial ports initialisierung
@@ -97,6 +107,11 @@ void setup() {
   pinMode(USONIC_TRIG, OUTPUT);
   digitalWrite(USONIC_TRIG, LOW);
   pinMode(USONIC_ECHO, INPUT); 
+  pinMode(TEMPERATURE, INPUT);
+  //dht11.setDelay(500); //DHT11 Temperatur Abtastrate in ms, messung jede minute
+  do{
+    temp = dht11.readTemperature(); //für die richtige Temperatur zu beginn
+  } while(temp>60);
 
   pinMode(PUMP, OUTPUT);
   digitalWrite(PUMP, LOW);

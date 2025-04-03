@@ -4,6 +4,7 @@ float EV3_Distance(){
   float sum, mean, distance; // Umrechnung Laufzeit in Abstand
   int validCount; // Anzahl an Messungen im Rahmen der Tolleranz
   int i;
+  float airSpeed;
 
 do {
     Display_Com(); //Dass immer auf das Display zugegriffen werden kann
@@ -30,10 +31,11 @@ do {
     }
 
     mean = sum / validCount;
-    distance = (mean * 0.0343) / 2; // Distanz berechnen
+    airSpeed = sqrt(1.4*286*(273.15 + temp))/10000; //siehe https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/sound.html
+    distance = (mean * airSpeed) / 2; // Distanz berechnen
 
 } while(distance != distance); //Wenn distance NaN ist dann ist die abfrage true
 
-
+Serial.println(distance);
 return distance;
 }

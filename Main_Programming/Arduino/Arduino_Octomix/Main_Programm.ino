@@ -9,7 +9,9 @@ void loop() {
 //// Standby
   Display_Com();
   EV3_Com(EV3_STOP);
-
+  EV3_Distance();
+  temperatureRead();
+  
 // Programm zu Testzwecken für den Main Ablauf
   if(testRun == true){
    crsMix[0] = 0xF;  //15
