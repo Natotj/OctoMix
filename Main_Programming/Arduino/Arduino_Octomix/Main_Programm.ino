@@ -74,6 +74,7 @@ while(true){
           printLine("EV3_VF_O");
         }
         delay(12*1000);
+        EV3_Com(EV3_STOPP);
 
         Progress_Bar();
       
@@ -95,6 +96,7 @@ while(true){
           printLine("EV3_VF_C");
         }
         delay(15*1000);
+        EV3_Com(EV3_STOPP);
         Progress_Bar();
 
         //Shanken Wenn i/2+1=shake1 oder =shake2 dann shaken
