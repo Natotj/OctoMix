@@ -11,7 +11,20 @@ void loop() {
   EV3_Com(EV3_STOP);
   EV3_Distance();
   temperatureRead();
-  
+
+int a[10] = {1, 6, 2, 7, 3, 8, 4, 9, 5, 10};
+  while(true){
+    for(i=0; i<10; i++){
+      //Serial.println(a[i]);
+      //Distance_Controll(valveDistance[a[i]-1]);
+      Distance_Controll(valveDistance[3]);
+      Serial.println("angekommen");
+      delay(2000);
+      Distance_Controll(valveDistance[6]);
+      Serial.println("angekommen");
+      delay(2000);
+    }
+  }
 // Programm zu Testzwecken für den Main Ablauf
   if(testRun == true){
    crsMix[0] = 0xF;  //15
@@ -44,7 +57,7 @@ void loop() {
 
     Progress_Bar();
 
-    for(i=0; i<16; i+=2){
+    for(i=0; i<14; i+=2){ //stimmt die 14??
       printLine("New V");
 
       valveNum = crsMix[i];

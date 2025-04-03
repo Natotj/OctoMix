@@ -1,17 +1,17 @@
 void Distance_Controll(float setPoint) {
   //Funktion um den EV3 über das gewünschte Ventil zu fahren. setPoint gibt den gewünschten Abstand zwischen US-Sensor und EV3 an. deltaErlaubt steuert die zulässige abweichung.
 // PID-Parameter
-  float Kp = 1.0;
-  float Ki = 0.08;
-  float Kd = 0;
+  float Kp = 1.5;
+  float Ki = 0.2;
+  float Kd = 0.1;
 
 //Variablen für den Regler
   float is; // ist wert vom US-Sensor
   float error = -2000; // Fehler
   float out = 0; // Regler ausgabe
   float lastIs = 0; //vorheriger Messwert
-  float deltaErlaubt = 0.3; //Erlaubte Abweichung der Positionierung in cm
-  float dt = 0.157; //schätzung des Zeitintervall in sek (1m*50intervalle/343m/s airSpeed + +50*0.00002s wartezeit0.01s berechnungsdauer)
+  float deltaErlaubt = 0.25; //Erlaubte Abweichung der Positionierung in cm
+  float dt = 0.184; //mittelwert wenn EV3 in der Mitte steht
   
   bool ersterDurchlauf = true;
 
@@ -25,6 +25,7 @@ void Distance_Controll(float setPoint) {
     Display_Com();
     is = EV3_Distance();
     error = setPoint - is;
+    //Serial.println(error);
 
     if(ersterDurchlauf) { //Bei erstem Durchgang des Reglers 
       lastIs = is;
@@ -32,9 +33,9 @@ void Distance_Controll(float setPoint) {
     }
 
     proportional = Kp * error;
-    integral += error * (dt+0.0001);
+    integral += error * dt;
     integral = constrain(integral, -15, 15);
-    differential = (is - lastIs) / (dt+0.0001);
+    differential = (is - lastIs) / dt;
 
     out = proportional + (Ki * integral) - (Kd * differential);
     
@@ -43,15 +44,15 @@ void Distance_Controll(float setPoint) {
         out = abs(out);
         if(out > 20){ // schnellstes Fahren
           EV3_Com(EV3_FW_F);
-        }else if(out > 5){ // mittleres Fahren
+        }else if(out > 10){ // mittleres Fahren
           EV3_Com(EV3_FW_M);
         }else { // langsames Fahren
           EV3_Com(EV3_FW_S);
         }
       }else{
-        if(out > 30){ // schnellstes Fahren
+        if(out > 20){ // schnellstes Fahren
           EV3_Com(EV3_B_F);
-        }else if(out > 4){ // mittleres Fahren
+        }else if(out > 10){ // mittleres Fahren
           EV3_Com(EV3_B_M);
         }else { // langsames Fahren
           EV3_Com(EV3_B_S);
@@ -59,8 +60,6 @@ void Distance_Controll(float setPoint) {
       }
 
     lastIs = is; 
-    
-    delay(dt * 1000);
   }
   EV3_Com(EV3_STOP);
 }

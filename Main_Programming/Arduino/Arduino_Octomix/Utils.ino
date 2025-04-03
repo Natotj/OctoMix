@@ -17,7 +17,7 @@ void temperatureRead(){
 int tempTest;
 
   currentMillis = millis();
-  if (currentMillis - previousMillis >= 240000) {  
+  if (currentMillis - previousMillis >= 6000) {  
         previousMillis = currentMillis;  // Zeitstempel aktualisieren
         tempTest = dht11.readTemperature(); //um immer die richtige Temperatur zu haben
         if (tempTest < 60) temp = tempTest;

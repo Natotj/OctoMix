@@ -73,15 +73,15 @@ bool testRun = false; //nur für Testzwecke
 //   Variablen der Realen Welt für das Mixen
   float flowrate = 1; // Fließgeschwindigkeit in Cl pro sek
   float valveDistance[10] = { // Abstand zwischen US-Sensor und EV3 um am richtigen Ventil zu stehen
-    0.408, // fix
-    2.800, // fix
-    22.392, // fix
-    31.046, // fix
-    40.167, // fix
-    52.000, // fix
-    62.253, // fix
-    68.104, // fix
-    77.089, // fix
+    0.5, //1
+    2.800, //2
+    22.392, //3
+    31.046, //4
+    40.167, //5
+    52.000, //6
+    77.5, //7
+    68.104, //8
+    75, //9
     83.996, // noch nicht vorhanden!
   };
 

@@ -26,7 +26,7 @@ do {
     sum = 0;
     validCount = 0;
     for (int i = 0; i < numMeasurements; i++) { 
-      if (abs(duration[i] - mean) <= 0.1 * mean) { // Werte innerhalb 5% Abweichung
+      if (abs(duration[i] - mean) <= 0.05 * mean) { // Werte innerhalb 5% Abweichung
         sum += duration[i];
         validCount++;
       }
