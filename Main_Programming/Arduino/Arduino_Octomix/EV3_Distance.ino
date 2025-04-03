@@ -34,5 +34,6 @@ do {
 
 } while(distance != distance); //Wenn distance NaN ist dann ist die abfrage true
 
+
 return distance;
 }

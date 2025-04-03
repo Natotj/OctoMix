@@ -8,7 +8,7 @@ void loop() {
 
 //// Standby
   Display_Com();
-  if(testRun == false) EV3_Com(EV3_STOP);
+  EV3_Com(EV3_STOP);
 
 // Programm zu Testzwecken für den Main Ablauf
   if(testRun == true){
