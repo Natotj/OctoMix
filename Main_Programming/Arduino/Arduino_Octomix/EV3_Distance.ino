@@ -1,5 +1,5 @@
 float EV3_Distance(){
-  const int numMeasurements = 60; // Anzahl an Messungen für den US-Sensor
+  const int numMeasurements = 10; // Anzahl an Messungen für den US-Sensor
   float duration[numMeasurements]; // Laufzeit der Schallwelle der jeweilligen Messung
   float sum, mean, distance; // Umrechnung Laufzeit in Abstand
   int validCount; // Anzahl an Messungen im Rahmen der Tolleranz
@@ -12,7 +12,7 @@ do {
     sum = 0;
     for(i=0; i<numMeasurements; i++) { //Misst so oft wie numMeasurements vorgibt
       digitalWrite(USONIC_TRIG, LOW);
-      delayMicroseconds(20);
+      delayMicroseconds(2);
       digitalWrite(USONIC_TRIG, HIGH);
       delayMicroseconds(10);
       digitalWrite(USONIC_TRIG, LOW);
@@ -38,6 +38,6 @@ do {
 
 } while(distance != distance); //Wenn distance NaN ist dann ist die abfrage true
 
-Serial.println(distance);
+//Serial.println(distance);
 return distance;
 }

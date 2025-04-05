@@ -12,17 +12,17 @@ void loop() {
   EV3_Distance();
   temperatureRead();
 
-int a[10] = {1, 6, 2, 7, 3, 8, 4, 9, 5, 10};
+int a[6] = {6, 8, 5, 9, 7, 10};
   while(true){
-    for(i=0; i<10; i++){
-      //Serial.println(a[i]);
-      //Distance_Controll(valveDistance[a[i]-1]);
-      Distance_Controll(valveDistance[3]);
+    for(i=0; i<6; i++){
+      Serial.println(a[i]);
+      Distance_Controll(valveDistance[a[i]-1]);
+      //Distance_Controll(valveDistance[5-1]);
       Serial.println("angekommen");
       delay(2000);
-      Distance_Controll(valveDistance[6]);
+      /*Distance_Controll(valveDistance[7-1]);
       Serial.println("angekommen");
-      delay(2000);
+      delay(2000);*/
     }
   }
 // Programm zu Testzwecken für den Main Ablauf

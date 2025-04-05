@@ -73,16 +73,16 @@ bool testRun = false; //nur für Testzwecke
 //   Variablen der Realen Welt für das Mixen
   float flowrate = 1; // Fließgeschwindigkeit in Cl pro sek
   float valveDistance[10] = { // Abstand zwischen US-Sensor und EV3 um am richtigen Ventil zu stehen
-    0.5, //1
-    2.800, //2
-    22.392, //3
+    0.7, //1
+    3.718, //2
+    12.946, //3
     31.046, //4
-    40.167, //5
-    52.000, //6
-    77.5, //7
-    68.104, //8
-    75, //9
-    83.996, // noch nicht vorhanden!
+    39.135, //5
+    47.7, //6
+    56.35, //7
+    65.5, //8
+    74.69, //9
+    82.5, // noch nicht vorhanden!
   };
 
   int temp = 20; //Temperatur, wird jede minute geupdatet von dht11.readTemperature() in Main
