@@ -40,7 +40,7 @@ elif [ $options -eq 4 ] || [ $options -eq 5 ]; then
 
   # Commands (4 monitoring and 5 everything)
   if [ $options -eq 4 ]; then
-    arduino-cli monitor -p /dev/ttyACM0 --config baudrate=31250
+    arduino-cli monitor -p /dev/ttyACM0 --config baudrate=$baudrate
 
   elif [ $options -eq 5 ]; then
     arduino-cli compile -p /dev/ttyACM0
