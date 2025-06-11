@@ -1,8 +1,12 @@
+board="uno"
+echo "Current board: $board"
+
 echo "(1): Compile sketch"
 echo "(2): Upload sketch"
 echo "(3): Compile & upload"
 echo "(4): Monitor sketch"
 echo "(5): Everything"
+echo "(6): Change board and upload"
 echo ""
 
 read options
@@ -12,11 +16,12 @@ if [ $options -eq 1 ]; then
 
 # upload
 elif [ $options -eq 2 ]; then
-  arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno
+  arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:$board
 
+# compile & compile
 elif [ $options -eq 3 ]; then
   arduino-cli compile -p /dev/ttyACM0
-  arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno
+  arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:$board
 
 # monitor sketch or everything (they both need the baudrate setup)
 elif [ $options -eq 4 ] || [ $options -eq 5 ]; then
@@ -44,7 +49,13 @@ elif [ $options -eq 4 ] || [ $options -eq 5 ]; then
 
   elif [ $options -eq 5 ]; then
     arduino-cli compile -p /dev/ttyACM0
-    arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno
+    arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:$board
     arduino-cli monitor -p /dev/ttyACM0 --config baudrate=$baudrate
   fi
+
+# change boardname and upload
+elif [ $options -eq 6 ]; then
+    echo "Enter boardname:"
+    read board
+    arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:$board
 fi
