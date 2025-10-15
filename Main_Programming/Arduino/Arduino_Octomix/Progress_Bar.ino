@@ -1,6 +1,4 @@
 // function that is responsible for the progress bar, which is going to be displayed on the nextion display during mixing
-
-// the progress in percent
 float progress = 0.0;
 // Initialization of Progress_Bar 
 bool initProgress = true;
@@ -10,7 +8,6 @@ void Progress_Bar(){
   int lenArray = sizeof(crsMix) / sizeof(crsMix[0]) - 1; 
 
   switch (initProgress){
-    // Initialization. This is only being executed as a setup for each progress bar 
     case true:
       // check how many steps are going to be made -> later used for percentAdd 
       for (int i = 0; i < lenArray; i += 2){
@@ -18,7 +15,6 @@ void Progress_Bar(){
           mixSteps++;
         }
       }
-      // from 1 (true) to 0 (false) => no more Initialization 
       initProgress = false;
     break;
 
@@ -27,7 +23,6 @@ void Progress_Bar(){
       // Outcome -> how much is added each time Progress_Bar() is being called 
       float percentAdd = 100.0 / (mixSteps * 5); 
 
-      // progress addition 
       progress = progress + percentAdd;
 
       // sends the rounded progress to the display
